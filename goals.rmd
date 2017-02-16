@@ -1,6 +1,10 @@
 ---
 title: "goals"
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
 ---
 We have the folowing datasets:
 

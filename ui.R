@@ -6,7 +6,8 @@ fluidPage(
   # Application title
   titlePanel("Old Faithful Geyser Data"),
   
-  # Sidebar with a slider input for number of bins 
+  # Sidebar with a slider input for number of bins
+  # Add in actionButton?
   sidebarLayout(
     sidebarPanel(
       sliderInput("bins",

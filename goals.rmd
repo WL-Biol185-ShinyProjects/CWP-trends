@@ -2,3 +2,33 @@
 title: "goals"
 output: html_document
 ---
+We have the folowing datasets:
+
+RapidProgression.csv
+  multiple radiographs from multiple years per miner
+  final PMF stage from final radiograph per miner
+  final CWP stage from final radiograph per miner
+  underground mining tenure
+  coalface mining tenure
+  age of miner at final radiograph
+  mine size 
+  geographic region
+  
+ncsr1.csv
+  one radiograph per miner
+  age at time of radiograph
+  presence of CWP 1/0 or greater (less than or postive)
+  presence of CWP 2/1 or greater (less than or postive)
+  region (by coal type)
+  exposure (gram-hours per cubic meter)
+  
+Kentucky_Virginia.csv
+  multiple radiographs per miner
+  year of xray
+  final PMF stage
+  final CWP category 
+  underground tenure 
+  coal face indicator (yes/no) at last xray
+  bolt driller indicator (yes/no) at last xray
+  driller tenure group
+  

@@ -36,3 +36,10 @@ Kentucky_Virginia.csv
   bolt driller indicator (yes/no) at last xray
   driller tenure group
   
+ncsr4.csv
+  Age:    Age at time of medical survey (years)
+  Cat1:   Indicator showing presence or absence of category 1/0 or greater
+  Cat2:   Indicator showing presence or absence of category 2/1 or greater
+  PMF:    Indicator showing presence or absence of progressive massive fibrosis
+  Region: coal rank region
+  Exp:    Respirable dust exposure (gram-hours per cubic meter)               

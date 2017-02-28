@@ -1,5 +1,5 @@
 ---
-title: "goals"
+title: "Compiled Dictionary"
 output:
   html_document:
     toc: true

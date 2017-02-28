@@ -36,3 +36,12 @@ Kentucky_Virginia.csv
   bolt driller indicator (yes/no) at last xray
   driller tenure group
   
+CaseStudy.csv
+  multiple radiographs per miner
+  year of xray
+  age group of miner 
+  pmf stage 
+  SPO profusion category
+  yes or no coalescense 
+  total mining tenure group 
+  coal face tenure 

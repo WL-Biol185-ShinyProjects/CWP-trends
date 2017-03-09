@@ -1,29 +1,24 @@
 library(shiny)
 library(ggplot2)
+library(dplyr)
+ncsr4 <- read.csv("data/ncsr4_clean.csv")
 
-ncsr4 <- ncsr4
-
-selectInput("", label = "Risk Factor:", choices = c("tenure", "exposure"))
-
-renderPlot({
-   ncsr4 %>%
-    group_by(input$group, carrier) %>%
-    summarize(ave_delay = mean(sum(arr_delay + dep_delay, na.rm = TRUE))) %>%
-    ggplot(aes(input$group, ave_delay, colour = carrier)) + geom_bar(stat = "identity")
-})
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
+  output$range <- renderPrint({input$slider2})
+
   
-  output$distPlot <- renderPlot({
+  renderPlot({
+      ncsr4 %>%
+      filter(EXP == output$range) %>%
+      group_by(PMF, AGE) %>%
+      summarize(n = n()) %>%
+      ggplot(aes(AGE, n)) +
+          geom_histogram()
+        
     
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2] 
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-    
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    
+   
   })
   
 })

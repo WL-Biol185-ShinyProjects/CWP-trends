@@ -11,12 +11,11 @@ fluidPage(
               max = 100,
               value = c(40, 60)
                  )
-                )
+                ),
+      mainPanel(
+        plotOutput("expPlot") )
+              )
                )
-              ),
-    mainPanel(
-      plotOutput("expPlot")
-           )
         
 
  

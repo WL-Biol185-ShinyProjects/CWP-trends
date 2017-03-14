@@ -10,12 +10,12 @@ shinyServer(function(input, output) {
 
   
   renderPlot({
-      ncsr4 %>%
-      filter(EXP == output$range) %>%
-      group_by(PMF, AGE) %>%
-      summarize(n = n()) %>%
+    ncsr4 %>%
+      filter(PMF == "PMF+", EXP == output$range) %>%
+      group_by(AGE) %>%
+      count(AGE) %>%
       ggplot(aes(AGE, n)) +
-          geom_histogram()
+      geom_bar(stat = "identity")
         
     
    

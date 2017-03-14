@@ -35,12 +35,21 @@ ncsr4 <- read.csv("data/ncsr4_clean.csv")
 
 ```{r}
 library(ggplot2)
+```
+
+```{r}
+ncsr4$REGION <- factor(ncsr4$REGION)
+summary(ncsr4)
+```
+
+
+```{r}
 ncsr4 %>%
       filter(PMF == "PMF+", EXP > 11) %>%
       group_by(AGE) %>%
-      count(AGE) %>%
+      count(AGE, REGION) %>%
       ggplot(aes(AGE, n, fill = REGION)) +
-            geom_bar(stat = "identity", position = "stack")
-      
+            geom_bar(stat = "identity", position = "stack") 
+            
 ```
 

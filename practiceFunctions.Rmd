@@ -53,3 +53,8 @@ ncsr4 %>%
             
 ```
 
+```{r}
+library(tidyr)
+ncsr4G <- gather(ncsr4, key = "disease", value = n, 3:5)
+```
+

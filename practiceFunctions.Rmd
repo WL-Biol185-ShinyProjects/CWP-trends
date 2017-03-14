@@ -32,6 +32,7 @@ iris %>%
 ```{r}
 ncsr4 <- read.csv("data/ncsr4_clean.csv")
 ```
+
 ```{r}
 library(ggplot2)
 ncsr4 %>%

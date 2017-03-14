@@ -1,0 +1,45 @@
+---
+title: "practice"
+output: html_document
+---
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+summary(iris)
+```
+
+```{r}
+iris %>%
+group_by(Species)
+```
+
+```{r}
+group_by(iris, Species)
+```
+
+```{r}
+iris %>%
+filter(Sepal.Length > 5, Species == "setosa")
+```
+```{r}
+iris %>%
+  summarize(Sepal.Length, Species)
+```
+
+```{r}
+ncsr4 <- read.csv("data/ncsr4_clean.csv")
+```
+```{r}
+library(ggplot2)
+ncsr4 %>%
+      filter(PMF == "PMF+", EXP > 11) %>%
+      group_by(AGE) %>%
+      count(AGE) %>%
+      ggplot(aes(AGE, n, fill = REGION)) +
+            geom_bar(stat = "identity", position = "stack")
+      
+```
+

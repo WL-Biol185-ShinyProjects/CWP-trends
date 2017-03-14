@@ -8,8 +8,8 @@ fluidPage(
       sliderInput("slider1", 
               label = h3("Coal Exposure (gram-hours per cubic meter)"),
               min = 0, 
-              max = 100,
-              value = c(40, 60)
+              max = 200,
+              value = c(0, 200)
                  )
                 ),
       mainPanel(

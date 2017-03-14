@@ -1,0 +1,41 @@
+---
+title: "Notes + Test Code for County Map"
+author: "John Bowman"
+date: "3/9/2017"
+output: html_document
+---
+
+#Data
+Sourced from: http://eric.clst.org/wupl/Stuff/gz_2010_us_050_00_5m.json
+Need to cite US Census Beauro, see (http://eric.clst.org/Stuff/USGeoJSON) for more info
+All actual data sourced from NIOSH, need to find urls, etc. (add in dates / redownload for final)
+```{r}
+uscounties <- rgdal::readOGR("data/counties_5m.json", "OGRGeoJSON")
+```
+
+Test leaflet map with counties included
+```{r}
+leaflet(uscounties) %>%
+  addTiles() %>%
+  addPolygons()
+```
+
+We will use rapidProgression_clean for these plots (only df that has county info built in)
+```{r}
+rapidProg_raw <- read.csv("~/CWP-trends/data/rapidProgression_clean.csv")
+
+rapidProg_raw$X <- NULL
+```
+
+```{r}
+uscounties$REGION <- NA
+
+rapidProg_northernApp <- subset(rapidProg_raw, REGION == "Northern Appalachia")
+rapidProg_centralApp  <- subset(rapidProg_raw, REGION == "Central Appalachia")
+rapidProg_west        <- subset(rapidProg_raw, REGION == "West")
+rapidProg_southernApp <- subset(rapidProg_raw, REGION == "Southern Appalachia")
+rapidProg_midWest     <- subset(rapidProg_raw, REGION == "Mid-West")
+
+uscounties$REGION <- rapidProg_northernApp[uscounties$STATE == ]
+```
+

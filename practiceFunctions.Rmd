@@ -38,7 +38,7 @@ library(ggplot2)
 ```
 
 ```{r}
-ncsr4$REGION <- factor(ncsr4$REGION)
+ncsr4$REGION <- factor(ncsr4$REGION, levels = c("HI RANK", "MED RANK", "LOW RANK"))
 summary(ncsr4)
 ```
 

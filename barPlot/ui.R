@@ -9,7 +9,8 @@ fluidPage(
               label = h3("Coal Exposure (gram-hours per cubic meter)"),
               min = 0, 
               max = 200,
-              value = c(0, 200)
+              value = c(0, 200),
+              round = TRUE
                  )
                 ),
     

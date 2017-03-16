@@ -5,51 +5,67 @@ date: "3/9/2017"
 output: html_document
 ---
 
-#Data
+Library
+```{r Library}
+library(dplyr)
+library(leaflet)
+```
+
+
+#Leaflet Test
+##Data
 Sourced from: http://eric.clst.org/wupl/Stuff/gz_2010_us_050_00_5m.json
               http://eric.clst.org/wupl/Stuff/gz_2010_us_040_00_5m.json
 Need to cite US Census Beauro, see (http://eric.clst.org/Stuff/USGeoJSON) for more info
 All actual data sourced from NIOSH, need to find urls, etc. (add in dates / redownload for final)
-```{r}
+```{r Data leaflet}
 uscounties <- rgdal::readOGR("data/counties_5m.json", "OGRGeoJSON")
 usstates   <- rgdal::readOGR("data/state_5m.json", "OGRGeoJSON")
 ```
 
 Test leaflet map with counties included
-```{r}
+##Leaflet Test
+```{r leaflet}
 leaflet(uscounties) %>%
   addTiles() %>%
   addPolygons(data = uscounties, color = "blue", weight = 1, fillOpacity = 0) %>%
   addPolygons(data = usstates, color = "black", weight = 5, fillOpacity = 0)
 ```
 
+
+#Data merging: rapidProgression
 We will use rapidProgression_clean for these plots (only df that has county info built in)
-```{r}
+##Data
+```{r Data rapidProgression}
 rapidProg_raw <- read.csv("~/CWP-trends/data/rapidProgression_clean.csv")
 
 rapidProg_raw$X <- NULL
 ```
 
-```{r}
+##Join State and Country DFs
+```{r join df}
 uscounties$REGION <- NA
 usstates$REGION   <- NA
-
-rapidProg_northernApp <- subset(rapidProg_raw, REGION == "Northern Appalachia")
-rapidProg_centralApp  <- subset(rapidProg_raw, REGION == "Central Appalachia")
-rapidProg_west        <- subset(rapidProg_raw, REGION == "West")
-rapidProg_southernApp <- subset(rapidProg_raw, REGION == "Southern Appalachia")
-rapidProg_midWest     <- subset(rapidProg_raw, REGION == "Mid-West")
 
 states <- as.data.frame(usstates$NAME)
 states$STATE <- (usstates$STATE)
 
-uscounties$STATE
 df_counties <- as.data.frame(uscounties)
 df_join     <- dplyr::left_join(df_counties, states, by = "STATE")
+```
 
-df_join <- within(df_join, REGION[`usstates$NAME` %in% c('Maryland', 'Pennsylvania', 'Ohio')] <- 'Northern Appalachia')
-df_join <- within(df_join, REGION[`usstates$NAME` == 'West Virginia' & COUNTY %in% c( "Barbour"
-                                                                                    , "Brooke"
+##Assign Rergions to states/counties
+
+###Northern Appalachia
+```{r Northern Appalachia}
+df_join <- within(df_join, REGION[`usstates$NAME` %in% c( 'Maryland'
+                                                        , 'Pennsylvania'
+                                                        , 'Ohio'
+                                                        )
+                                 ] <- 'Northern Appalachia')
+
+df_join <- within(df_join, REGION[`usstates$NAME` == 'West Virginia' & NAME %in% c( "Barbour"
+                                                                                  , "Brooke"
                                                                                   , "Clay"
                                                                                   , "Grant"
                                                                                   , "Greenbrier"
@@ -67,6 +83,98 @@ df_join <- within(df_join, REGION[`usstates$NAME` == 'West Virginia' & COUNTY %i
                                                                                   )
                                   ] <- 'Northern Appalachia'
                   )
-
-
 ```
+
+###Mid-West
+```{r}
+df_join <- within(df_join, REGION[`usstates$NAME` %in% c( 'Illinois'
+                                                        , 'Indiana'
+                                                        )
+                                 ] <- 'Mid-West')
+
+df_join <- within(df_join, REGION[`usstates$NAME` == 'Kentucky' & NAME %in% c( "Hopkins"
+                                                                             , "Union"
+                                                                             , "Webster"
+                                                                             )
+                                  ] <- 'Mid-West')
+```
+
+###Central Appalachia
+```{r Central Appalachia}
+df_join <- within(df_join, REGION[`usstates$NAME` %in% c( 'Virginia'
+                                                        , 'Tennessee'
+                                                        )
+                                 ] <- 'Central Appalachia')
+
+df_join <- within(df_join, REGION[`usstates$NAME` == 'Kentucky' & NAME %in% c( "Bell"
+                                                                             , "Boyd"
+                                                                             , "Breathitt"
+                                                                             , "Christian"
+                                                                             , "Clay"
+                                                                             , "Daviess"
+                                                                             , "Estill"
+                                                                             , "Floyd"
+                                                                             , "Harlan"
+                                                                             , "Henderson"
+                                                                             , "Jackson"
+                                                                             , "Johnson"
+                                                                             , "Knott"
+                                                                             , "Knox"
+                                                                             , "Laurel"
+                                                                             , "Lawrence"
+                                                                             , "Leslie"
+                                                                             , "Letcher"
+                                                                             , "Martin"
+                                                                             , "Mclean"
+                                                                             , "Muhlenberg"
+                                                                             , "Perry"
+                                                                             , "Pike"
+                                                                             , "Whitley"
+                                                                             , "Wolfe"
+                                                                             )
+                                  ] <- 'Central Appalachia')
+
+df_join <- within(df_join, REGION[`usstates$NAME` == 'West Virginia' & NAME %in% c( "Boone"
+                                                                             , "Fayette"
+                                                                             , "Kanawha"
+                                                                             , "Logan"
+                                                                             , "McDowell"
+                                                                             , "Mingo"
+                                                                             , "Nicholas"
+                                                                             , "Wayne"
+                                                                             , "Wyoming"
+                                                                           
+                                                                             )
+                                  ] <- 'Central Appalachia')
+```
+
+###Southern Appalachia
+```{r Southern Appalachia}
+df_join <- within(df_join, REGION[`usstates$NAME` %in% c( 'Alabama'
+                                                        , 'Arkansas'
+                                                        , 'Louisiana'
+                                                        )
+                                  ] <- 'Southern Appalachia')
+```
+
+###West
+```{r West}
+df_join <- within(df_join, REGION[`usstates$NAME` %in% c( 'Arizona'
+                                                        , 'Colorado'
+                                                        , 'Montana'
+                                                        , 'New Mexico'
+                                                        , 'North Dakota'
+                                                        , 'Oklahoma'
+                                                        , 'Texas'
+                                                        , 'Utah'
+                                                        , 'Wyoming'
+                                                        , 'Washington'
+                                                        )
+                                  ] <- 'West')
+```
+
+#Save df_join for loading into server.ui
+```{r Save Data}
+save(df_join, file = "data/serverData.RData")
+```
+

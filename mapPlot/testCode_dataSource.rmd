@@ -18,7 +18,7 @@ Sourced from: http://eric.clst.org/wupl/Stuff/gz_2010_us_050_00_5m.json
               http://eric.clst.org/wupl/Stuff/gz_2010_us_040_00_5m.json
 Need to cite US Census Beauro, see (http://eric.clst.org/Stuff/USGeoJSON) for more info
 All actual data sourced from NIOSH, need to find urls, etc. (add in dates / redownload for final)
-```{r Data leaflet}
+```{r Data leaflet, cache = TRUE}
 uscounties <- rgdal::readOGR("data/counties_5m.json", "OGRGeoJSON")
 usstates   <- rgdal::readOGR("data/state_5m.json", "OGRGeoJSON")
 ```
@@ -173,8 +173,37 @@ df_join <- within(df_join, REGION[`usstates$NAME` %in% c( 'Arizona'
                                   ] <- 'West')
 ```
 
+#Add in DISEASE column to rapidProg_raw with PMF or CWP labels
+PMF Stages = A, B, C
+CWP = 1 or greater
+
+```{r}
+rapidProg <- rapidProg_raw
+rapidProg$DISEASE <- NA
+
+rapidProg <- within(rapidProg, DISEASE[FINAL_CATEGORY %in% c( 1
+                                                            , 10
+                                                            , 11
+                                                            , 12
+                                                            , 2
+                                                            , 21
+                                                            , 22
+                                                            , 23
+                                                            , 32
+                                                            , 33
+                                                            ) & FINAL_STAGE == 'O'
+                                       ] <- 'CWP')
+
+rapidProg <- within(rapidProg, DISEASE[FINAL_STAGE %in% c( "A"
+                                                         , "B"
+                                                         , "C"
+                                                         )
+                                       ] <- 'PMF')
+```
+
+
 #Save df_join for loading into server.ui
 ```{r Save Data}
-save(df_join, file = "data/serverData.RData")
+save(df_join, rapidProg, file = "data/serverData.RData")
 ```
 

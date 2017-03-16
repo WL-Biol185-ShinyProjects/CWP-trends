@@ -19,11 +19,23 @@ shinyServer(function(input, output) {
       ggtitle("Progressive Massive Fibrosis") +
       labs(x="Age",y="Number of Cases") +
       scale_x_discrete(limit = c(43:62))
+    
+                              })
       
-        
+  output$cwpExpPlot <- renderPlot({
+      ncsr4 %>%
+        filter(CAT1 == "1/0+", EXP >= input$slider1[1], EXP <= input$slider1[2]) %>%
+        group_by(AGE) %>%
+        count(AGE, REGION) %>%
+        ggplot(aes(AGE, n, fill = REGION)) +
+        geom_bar(stat = "identity", position = "stack") +
+        ggtitle("Coal Workers' Pneumoconiosis (Category 1 or Greater)") +
+        labs(x="Age",y="Number of Cases") +
+        scale_x_discrete(limit = c(32:62))       
     
    
-  })
+                                  })
   
-})
+                               })
+      
 

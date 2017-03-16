@@ -15,7 +15,8 @@ fluidPage(
                 ),
     
       mainPanel(
-        plotOutput("expPlot") )
+        plotOutput("expPlot"),
+        plotOutput("cwpExpPlot"))
     
               )
                )

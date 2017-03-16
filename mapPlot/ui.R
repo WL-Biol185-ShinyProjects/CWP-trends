@@ -2,24 +2,21 @@ library(shiny)
 
 # Define UI for application that draws a histogram
 fluidPage(
-  
-  # Application title
-  titlePanel("Old Faithful Geyser Data"),
-  
-  # Sidebar with a slider input for number of bins
-  # Add in actionButton?
+  titlePanel("Approach"),
   sidebarLayout(
     sidebarPanel(
-      sliderInput("bins",
-                  "Number of bins:",
-                  min = 1,
-                  max = 100,
-                  value = 30)
+      sliderInput("slider1", 
+                  label = h3("Coal Exposure (gram-hours per cubic meter)"),
+                  min = 0, 
+                  max = 200,
+                  value = c(0, 200),
+                  round = TRUE
+      )
     ),
     
-    # Show a plot of the generated distribution
     mainPanel(
-      plotOutput("distPlot")
-    )
+      plotOutput("expPlot") )
+    
   )
 )
+

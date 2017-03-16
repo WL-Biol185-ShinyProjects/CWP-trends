@@ -86,7 +86,7 @@ df_join <- within(df_join, REGION[`usstates$NAME` == 'West Virginia' & NAME %in%
 ```
 
 ###Mid-West
-```{r}
+```{r Mid-West}
 df_join <- within(df_join, REGION[`usstates$NAME` %in% c( 'Illinois'
                                                         , 'Indiana'
                                                         )

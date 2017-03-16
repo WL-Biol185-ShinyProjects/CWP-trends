@@ -15,7 +15,11 @@ shinyServer(function(input, output) {
       group_by(AGE) %>%
       count(AGE, REGION) %>%
       ggplot(aes(AGE, n, fill = REGION)) +
-      geom_bar(stat = "identity", position = "stack")
+      geom_bar(stat = "identity", position = "stack") +
+      ggtitle("Progressive Massive Fibrosis") +
+      labs(x="Age",y="Number of Cases") +
+      scale_x_discrete(limit = c(43:62))
+      
         
     
    

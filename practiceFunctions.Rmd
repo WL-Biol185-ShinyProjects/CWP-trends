@@ -55,7 +55,6 @@ ncsr4 %>%
 
 Here I am working on putting the three disease columns into one column called disease. this will allow for us to have a drop down for each disease for the bar graph.
 ```{r}
-library(tidyr)
-ncsr4G <- gather(ncsr4, key = "disease", value = n, 3:5)
+ output$range <- renderPrint({ input$slider1 })
 ```
 

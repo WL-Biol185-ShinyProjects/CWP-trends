@@ -6,13 +6,12 @@ ncsr4$REGION <- factor(ncsr4$REGION, levels = c("HI RANK", "MED RANK", "LOW RANK
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
-  output$range <- renderPrint({ input$slider1 })
   
 
  
-  renderPlot({
+  output$expPlot <- renderPlot({
     ncsr4 %>%
-      filter(PMF == "PMF+", EXP == output$range) %>%
+      filter(PMF == "PMF+", EXP == input$slider1) %>%
       group_by(AGE) %>%
       count(AGE, REGION) %>%
       ggplot(aes(AGE, n, fill = REGION)) +

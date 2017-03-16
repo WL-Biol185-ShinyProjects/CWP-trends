@@ -7,17 +7,20 @@ output: html_document
 
 #Data
 Sourced from: http://eric.clst.org/wupl/Stuff/gz_2010_us_050_00_5m.json
+              http://eric.clst.org/wupl/Stuff/gz_2010_us_040_00_5m.json
 Need to cite US Census Beauro, see (http://eric.clst.org/Stuff/USGeoJSON) for more info
 All actual data sourced from NIOSH, need to find urls, etc. (add in dates / redownload for final)
 ```{r}
 uscounties <- rgdal::readOGR("data/counties_5m.json", "OGRGeoJSON")
+usstates   <- rgdal::readOGR("data/state_5m.json", "OGRGeoJSON")
 ```
 
 Test leaflet map with counties included
 ```{r}
 leaflet(uscounties) %>%
   addTiles() %>%
-  addPolygons()
+  addPolygons(data = uscounties, color = "blue", weight = 1, fillOpacity = 0) %>%
+  addPolygons(data = usstates, color = "black", weight = 5, fillOpacity = 0)
 ```
 
 We will use rapidProgression_clean for these plots (only df that has county info built in)
@@ -29,6 +32,7 @@ rapidProg_raw$X <- NULL
 
 ```{r}
 uscounties$REGION <- NA
+usstates$REGION   <- NA
 
 rapidProg_northernApp <- subset(rapidProg_raw, REGION == "Northern Appalachia")
 rapidProg_centralApp  <- subset(rapidProg_raw, REGION == "Central Appalachia")
@@ -36,6 +40,33 @@ rapidProg_west        <- subset(rapidProg_raw, REGION == "West")
 rapidProg_southernApp <- subset(rapidProg_raw, REGION == "Southern Appalachia")
 rapidProg_midWest     <- subset(rapidProg_raw, REGION == "Mid-West")
 
-uscounties$REGION <- rapidProg_northernApp[uscounties$STATE == ]
-```
+states <- as.data.frame(usstates$NAME)
+states$STATE <- (usstates$STATE)
 
+uscounties$STATE
+df_counties <- as.data.frame(uscounties)
+df_join     <- dplyr::left_join(df_counties, states, by = "STATE")
+
+df_join <- within(df_join, REGION[`usstates$NAME` %in% c('Maryland', 'Pennsylvania', 'Ohio')] <- 'Northern Appalachia')
+df_join <- within(df_join, REGION[`usstates$NAME` == 'West Virginia' & COUNTY %in% c( "Barbour"
+                                                                                    , "Brooke"
+                                                                                  , "Clay"
+                                                                                  , "Grant"
+                                                                                  , "Greenbrier"
+                                                                                  , "Harrison"
+                                                                                  , "Lincoln"
+                                                                                  , "Marion"
+                                                                                  , "Marshall"
+                                                                                  , "Monongalia"
+                                                                                  , "Preston"
+                                                                                  , "Raleigh"
+                                                                                  , "Randolph"
+                                                                                  , "Tucker"
+                                                                                  , "Upshur"
+                                                                                  , "Webster"
+                                                                                  )
+                                  ] <- 'Northern Appalachia'
+                  )
+
+
+```

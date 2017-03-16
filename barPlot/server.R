@@ -18,7 +18,9 @@ shinyServer(function(input, output) {
       geom_bar(stat = "identity", position = "stack") +
       ggtitle("Progressive Massive Fibrosis") +
       labs(x="Age",y="Number of Cases") +
-      scale_x_discrete(limit = c(43:62))
+      xlim(32, 62)
+      
+      
     
                               })
       
@@ -31,7 +33,9 @@ shinyServer(function(input, output) {
         geom_bar(stat = "identity", position = "stack") +
         ggtitle("Coal Workers' Pneumoconiosis (Category 1 or Greater)") +
         labs(x="Age",y="Number of Cases") +
-        scale_x_discrete(limit = c(32:62))       
+        xlim(32, 62) 
+        
+        
     
    
                                   })

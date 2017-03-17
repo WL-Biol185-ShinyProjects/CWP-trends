@@ -6,7 +6,7 @@ fluidPage(
   sidebarLayout(
     sidebarPanel(
       selectInput("select1", label = h3("Disease Box"), 
-                  choices = list("CWP" = 1, "PMF" = 2), 
+                  choices = list("CWP" = "CWP", "PMF" = "PMF"), 
                   selected = 1)
                 ),
               

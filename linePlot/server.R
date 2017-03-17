@@ -20,7 +20,7 @@ output$linePlot <- renderPlot({
     filter(DISEASE == input$select1) %>%
     group_by(XRAY_YEAR) %>%
     count(XRAY_YEAR, REGION) %>%
-    ggplot(aes(XRAY_YEAR, n, fill = REGION)) +
+    ggplot(aes(XRAY_YEAR, n, color = REGION)) +
     geom_line() +
     ggtitle("Temporal Disease Trends") +
     labs(x="Year",y="Number of Cases") +

@@ -2,24 +2,16 @@ library(shiny)
 
 # Define UI for application that draws a histogram
 fluidPage(
-  
-  # Application title
-  titlePanel("Old Faithful Geyser Data"),
-  
-  # Sidebar with a slider input for number of bins
-  # Add in actionButton?
+  titlePanel("Command Center"),
   sidebarLayout(
     sidebarPanel(
-      sliderInput("bins",
-                  "Number of bins:",
-                  min = 1,
-                  max = 100,
-                  value = 30)
-    ),
-    
-    # Show a plot of the generated distribution
-    mainPanel(
-      plotOutput("distPlot")
-    )
-  )
+      selectInput("select1", label = h3("Disease Box"), 
+                  choices = list("CWP" = 1, "PMF" = 2), 
+                  selected = 1)
+                ),
+              
+  mainPanel(
+    plotOutput("linePlot"))
+  
+)
 )

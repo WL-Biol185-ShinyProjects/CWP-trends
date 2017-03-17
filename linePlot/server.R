@@ -1,17 +1,31 @@
 library(shiny)
+library(ggplot2)
+library(dplyr)
+rapidProg_disease <- read.csv("../data/rapidProg_disease.csv")
 
-# Define server logic required to draw a histogram
+rapidProg_disease$REGION <- factor( rapidProg_disease$REGION
+                                  , levels = c( "West"
+                                              , "Mid-West"
+                                              , "Northern Appalachia"
+                                              , "Central Appalachia"
+                                              , "Southern Appalachia"
+                                              )
+                                  )
+
+
 shinyServer(function(input, output) {
   
-  output$distPlot <- renderPlot({
-    
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2] 
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-    
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    
-  })
+output$linePlot <- renderPlot({
+  rapidProg_disease %>%
+    filter(DISEASE == input$select1) %>%
+    group_by(XRAY_YEAR) %>%
+    count(XRAY_YEAR, REGION) %>%
+    ggplot(aes(XRAY_YEAR, n, fill = REGION)) +
+    geom_line() +
+    ggtitle("Temporal Disease Trends") +
+    labs(x="Year",y="Number of Cases") +
+    xlim(1969, 2002)
   
+})
+
 })

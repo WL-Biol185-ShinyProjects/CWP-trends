@@ -2,7 +2,7 @@ library(shiny)
 
 # Define UI for application that draws a histogram
 fluidPage(
-  titlePanel("Approach"),
+  titlePanel("Command Center"),
   sidebarLayout(
     sidebarPanel(
       sliderInput("slider1", 

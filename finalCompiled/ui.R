@@ -8,7 +8,6 @@ fluidPage(
                   choices = list("CWP" = "CWP", "PMF" = "PMF"), 
                   selected = 1),
       
-    sidebarPanel(
       sliderInput("slider1", 
                   label = h3("Coal Exposure (gram-hours per cubic meter)"),
                   min = 0, 
@@ -18,11 +17,11 @@ fluidPage(
                  )
                 ),
       
-    mainPanel(
-        plotOutput("expPlot"),
-        plotOutput("cwpExpPlot"),
-        plotOutput("linePlot"))
+  mainPanel(
+      plotOutput("expPlot"),
+      plotOutput("cwpExpPlot"),
+      plotOutput("linePlot"))
     
               )
             )
-       )
+

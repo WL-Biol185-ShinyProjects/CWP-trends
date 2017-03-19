@@ -2,7 +2,7 @@ library(shiny)
 
 fluidPage(
   titlePanel("Command Center"),
-  sidebarLayout(
+  sidebarLayout(position = "right",
     sidebarPanel(
       selectInput("select1", label = h3("Disease Box"), 
                   choices = list("CWP" = "CWP", "PMF" = "PMF"), 

@@ -1,11 +1,21 @@
 library(shiny)
 
 navbarPage(theme = shinythemes::shinytheme("superhero"), 
-           "Trends",
-           selected = "Exposure Plots",
+                      "Trends",
+                      selected = "Home",
            titlePanel(
                       h1 ("CWP and PMF Trends", align = "center")
                      ),
+           tabPanel("Home",
+                      h1("Welcome!", align = "center"),
+                      br(),
+                      mainPanel(
+                          p("This application allows visualization of current trends
+                          of two potentially debilitating coal dust-related lung 
+                          diseases: Coal Workers' Pneumoconiosis (CWP) and 
+                          Progressive Massive Fibrosis (PMF)")
+                              )
+                    ),
            tabPanel("Exposure Plots",
                     sidebarLayout(
                       sidebarPanel("Choose:",

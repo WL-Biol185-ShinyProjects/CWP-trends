@@ -1,6 +1,7 @@
 library(shiny)
 
-fluidPage(
+
+fluidPage(theme = shinythemes::shinytheme("superhero"),
   titlePanel("Trends in Coal Dust-related Lung Disease"),
   sidebarLayout(position = "right",
     sidebarPanel(

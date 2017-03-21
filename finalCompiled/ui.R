@@ -1,4 +1,5 @@
 library(shiny)
+library(jpeg)
 
 navbarPage(theme = shinythemes::shinytheme("superhero"), 
                       "Trends",
@@ -7,13 +8,19 @@ navbarPage(theme = shinythemes::shinytheme("superhero"),
                       h1 ("CWP and PMF Trends", align = "center")
                      ),
            tabPanel("Home",
-                      h1("Welcome!", align = "center"),
+                      h2("Welcome!", align = "center"),
                       br(),
                       mainPanel(
                           p("This application allows visualization of current trends
                           of two potentially debilitating coal dust-related lung 
-                          diseases: Coal Workers' Pneumoconiosis (CWP) and 
-                          Progressive Massive Fibrosis (PMF)")
+                          diseases: Coal Workers' Pneumoconiosis", span("(CWP)", 
+                                        style = "color:red"),
+                                     "and Progressive Massive Fibrosis",
+                                     span("(PMF).",
+                                        style = "color:red"),
+                          br(),
+                          img(src = "coal101914.jpg", height = 200, width = 200) #need to figure this out for uploading image
+                          )
                               )
                     ),
            tabPanel("Exposure Plots",

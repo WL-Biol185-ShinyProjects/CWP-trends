@@ -21,8 +21,13 @@ fluidPage(
   mainPanel(
       plotOutput("expPlot"),
       plotOutput("cwpExpPlot"),
-      plotOutput("linePlot"))
+      tabsetPanel(type = "tabs",
+                  tabPanel("Plot", plotOutput("linePlot")),
+                  tabPanel("Summary", verbatimTextOutput("summary"))
     
               )
          )
 
+
+)
+)

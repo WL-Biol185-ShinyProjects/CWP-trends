@@ -57,5 +57,10 @@ shinyServer(function(input, output) {
       xlim(1969, 2002)
       
     })
-    
+
+
+  output$summary <- renderPrint({
+    summary(rapidProg_disease)
   })
+  })
+

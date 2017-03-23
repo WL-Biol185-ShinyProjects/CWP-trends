@@ -1,28 +1,41 @@
 library(shiny)
-library(jpeg)
 
 navbarPage(theme = shinythemes::shinytheme("superhero"), 
                       "Trends",
                       selected = "Home",
-           titlePanel(
-                      h1 ("CWP and PMF Trends", align = "center")
-                     ),
+
            tabPanel("Home",
+                      h1("CWP and PMF Trends", align = "Left"),
                       h2("Welcome!", align = "center"),
                       br(),
                       mainPanel(
                           p("This application allows visualization of current trends
                           of two potentially debilitating coal dust-related lung 
                           diseases: Coal Workers' Pneumoconiosis", span("(CWP)", 
-                                        style = "color:red"),
+                                     style = "color:red"),
                                      "and Progressive Massive Fibrosis",
                                      span("(PMF).",
-                                        style = "color:red"),
+                                        style = "color:red", 
+                                        align = "center"),
                           br(),
-                          img(src = "coal101914.jpg", height = 200, width = 200) #need to figure this out for uploading image
+                          br(),
+                          img(src = "coal2.png", width = 480, height = 250, align = "center")
                           )
                               )
                     ),
+           tabPanel("Background",
+                    h3("Coal Workers's Pneumoconiosis", align = "center"),
+                    br(),
+                    mainPanel(
+                      p("CWP is a lung diseased caused by inhalation of 
+                        respirable coal dust from mining operations. It is 
+                        characerized by the presence of small opacities 
+                        (>10mm diameter) on chest radiographs. CWP is divided 
+                        into 4 groups, each with three subgroups based on the 
+                        profusion of the opacities through the lung." )
+                    )),
+           tabPanel("Geographic Plots"), #for John
+           
            tabPanel("Exposure Plots",
                     sidebarLayout(
                       sidebarPanel("Choose:",
@@ -67,7 +80,29 @@ navbarPage(theme = shinythemes::shinytheme("superhero"),
                                      )
                                 )
                                )
+                    ),
+           tabPanel("References",
+                    mainPanel(
+                          h2("References"),
+                          br(),
+                          br(),
+                          p("Coal Picture from", 
+                            span("http://www.pittstoncity.org/wp-content/uploads/2017/02/coal.jpg", 
+                            style = "color:red")),
+                          br(),
+                          p("International labor Office Guidelines from", 
+                            span("http://www.ilo.org/safework/info/WCMS_108548/lang--en/index.htm", 
+                            style = "color:red")),
+                          br(),
+                          br(),
+                          br(),
+                          h2("Data"),
+                          selectInput("dataset", "Choose a dataset:", 
+                                      choices = c("Rapid Progression", "ncsr4")),
+                                      downloadButton('downloadData', 'Download'),
+                          tableOutput('table'))
+                    
                     )
           )
-                    
+
                             

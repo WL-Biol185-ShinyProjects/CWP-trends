@@ -17,6 +17,7 @@ library(leaflet)
 Sourced from: http://eric.clst.org/wupl/Stuff/gz_2010_us_050_00_5m.json
               http://eric.clst.org/wupl/Stuff/gz_2010_us_040_00_5m.json
 Need to cite US Census Beauro, see (http://eric.clst.org/Stuff/USGeoJSON) for more info
+
 All actual data sourced from NIOSH, need to find urls, etc. (add in dates / redownload for final)
 ```{r Data leaflet, cache = TRUE}
 uscounties <- rgdal::readOGR("data/counties_5m.json", "OGRGeoJSON")
@@ -29,7 +30,7 @@ Test leaflet map with counties included
 leaflet(uscounties) %>%
   addTiles() %>%
   addPolygons(data = uscounties, color = "blue", weight = 1, fillOpacity = 0) %>%
-  addPolygons(data = usstates, color = "black", weight = 5, fillOpacity = 0)
+  addPolygons(data = usstates, color = "black", weight = 5, fillOpacity = 0) %>%
 ```
 
 
@@ -200,6 +201,34 @@ rapidProg <- within(rapidProg, DISEASE[FINAL_STAGE %in% c( "A"
                                                          )
                                        ] <- 'PMF')
 ```
+
+
+Number of Pmf and Cwp cases from rapid prog and final join
+```{r}
+merge <- rapidProg %>%
+          group_by(XRAY_YEAR, REGION, DISEASE) %>%
+          summarise(n = n())
+
+merge <- merge[!is.na(merge$DISEASE),]
+
+final_join <- left_join(df_join, merge, by = "REGION")
+final_join <- final_join[!is.na(final_join$REGION),]
+```
+
+Test server code for filtering, counting, and then merging with uscounties@data$region
+```{r}
+values <- final_join %>%
+            filter(XRAY_YEAR >= 2000, XRAY_YEAR <= 2002) %>%
+            subset(DISEASE == "CWP") %>%
+            group_by(REGION, XRAY_YEAR) %>%
+            summarise(total = mean(n)) %>%
+            group_by(REGION) %>%
+            summarise(sumTotal = sum(total))
+
+filteredFinal <- filter(final_join, XRAY_YEAR >= 2000, XRAY_YEAR <= 2002)
+filteredFinal <- left_join(filteredFinal, values, by = "REGION")
+```
+
 
 
 #Save df_join for loading into server.ui

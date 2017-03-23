@@ -24,15 +24,20 @@ navbarPage(theme = shinythemes::shinytheme("superhero"),
                               )
                     ),
            tabPanel("Background",
-                    h3("Coal Workers's Pneumoconiosis", align = "center"),
-                    br(),
+                    titlePanel("Background"),
                     mainPanel(
+                      h3("Coal Workers's Pneumoconiosis", align = "left", style = "color:red"),
+                      br(),
                       p("CWP is a lung diseased caused by inhalation of 
                         respirable coal dust from mining operations. It is 
                         characerized by the presence of small opacities 
                         (>10mm diameter) on chest radiographs. CWP is divided 
-                        into 4 groups, each with three subgroups based on the 
-                        profusion of the opacities through the lung." )
+                        into 4 groups, Categories 0-3, indicating an increasing
+                        profusion of small opacities throughout the lungs."),
+                      br(),
+                      br(),
+                      h3("Progressive Massive Fibrosis", align = "left", style = "color:red")
+                      
                     )),
            tabPanel("Geographic Plots"), #for John
            
@@ -97,12 +102,14 @@ navbarPage(theme = shinythemes::shinytheme("superhero"),
                           br(),
                           br(),
                           h2("Data"),
-                          selectInput("dataset", "Choose a dataset:", 
-                                      choices = c("Rapid Progression", "ncsr4")),
-                                      downloadButton('downloadData', 'Download'),
-                          tableOutput('table'))
-                    
+                          downloadButton("downloadData", label = "Download Rapid Progression Data", class = NULL),
+                          p("from", span("https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html", 
+                                         style = "color:red")),
+                          br(),
+                          downloadButton("downloadData1", label = "Download ncsr4 Data", class = NULL),
+                          p("from", span("https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html", 
+                                         style = "color:red"))
                     )
           )
-
-                            
+)
+            

@@ -63,23 +63,21 @@ shinyServer(function(input, output) {
     summary(rapidProg_disease)
   })
   
-  datasetInput <- reactive({
-    switch(input$dataset,
-           "Rapid Progression" = rapidProg_disease,
-           "ncsr4" = ncsr4G
-          )
-  })
   
-  output$table <- renderTable({
-    datasetInput()
-  })
-  
-  output$downloadData <- downloadHandler(
-    filename = function() { paste(input$dataset, '.csv', sep='') },
+  output$downloadData <- downloadHandler( 
+    filename = "rapidProgression.csv",
     content = function(file) {
-      write.csv(datasetInput(), file)
+      write.csv(rapidProg_disease, file)
     }
   )
+  
+  output$downloadData <- downloadHandler( 
+    filename = "ncsr4.csv",
+    content = function(file) {
+      write.csv(ncsr4, file)
+    }
+  )
+  
 })
   
 

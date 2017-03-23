@@ -78,3 +78,7 @@ rapidProg_disease %>%
 ```{r}
 ```
 
+```{r}
+function() { paste(input$dataset, '.csv', sep='') }
+```
+

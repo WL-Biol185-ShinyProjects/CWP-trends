@@ -31,12 +31,18 @@ navbarPage(theme = shinythemes::shinytheme("superhero"),
                       p("CWP is a lung diseased caused by inhalation of 
                         respirable coal dust from mining operations. It is 
                         characerized by the presence of small opacities 
-                        (>10mm diameter) on chest radiographs. CWP is divided 
+                        (<10mm diameter) on chest radiographs. CWP is divided 
                         into 4 groups, Categories 0-3, indicating an increasing
                         profusion of small opacities throughout the lungs."),
                       br(),
                       br(),
-                      h3("Progressive Massive Fibrosis", align = "left", style = "color:red")
+                      h3("Progressive Massive Fibrosis", align = "left", style = "color:red"),
+                      br(),
+                      p("PMF is an often debilitating lung disease which can 
+                        develop in patients with CWP. PMF is characterized by 
+                        large opacities (>10mm diameter) on a chest radiograph. 
+                        It is classified into three categories, A-C, indicating
+                        an increasing size of the large opacity or opacities.")
                       
                     )),
            tabPanel("Geographic Plots"), #for John

@@ -327,7 +327,20 @@ final_join &lt;- left_join(df_join, merge, by = &quot;REGION&quot;)</code></pre>
 </div>
 <div id="save-counties-polygon-object-for-loading-into-server.ui" class="section level1">
 <h1>Save counties polygon object for loading into server.ui</h1>
-<pre class="r"><code>save(toMerge, file = &quot;data/serverData.RData&quot;)</code></pre>
+<pre class="r"><code>uscounties &lt;- rgdal::readOGR(&quot;data/counties_5m.json&quot;, &quot;OGRGeoJSON&quot;)</code></pre>
+<pre><code>## OGR data source with driver: GeoJSON 
+## Source: &quot;data/counties_5m.json&quot;, layer: &quot;OGRGeoJSON&quot;
+## with 3221 features
+## It has 6 fields</code></pre>
+<pre class="r"><code>usstates   &lt;- rgdal::readOGR(&quot;data/state_5m.json&quot;, &quot;OGRGeoJSON&quot;)</code></pre>
+<pre><code>## OGR data source with driver: GeoJSON 
+## Source: &quot;data/state_5m.json&quot;, layer: &quot;OGRGeoJSON&quot;
+## with 52 features
+## It has 5 fields</code></pre>
+<pre class="r"><code>save( toMerge
+    , uscounties
+    , usstates
+    , file = &quot;data/serverData.RData&quot;)</code></pre>
 </div>
 
 

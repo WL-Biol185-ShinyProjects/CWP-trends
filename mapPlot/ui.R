@@ -6,11 +6,12 @@ fluidPage(
   sidebarLayout(
     sidebarPanel(
       sliderInput( "slider1"
-                 , label = h3("Coal Exposure (gram-hours per cubic meter)")
-                 , min = 0
-                 , max = 200
-                 , value = c(0, 200)
+                 , label = h3("Years Mapped")
+                 , min = 1969
+                 , max = 2002
+                 , value = c(1969, 2002)
                  , round = TRUE
+                 , sep = ""
                  ),
       
       selectInput( "select1"
@@ -21,7 +22,7 @@ fluidPage(
                 ),
     
     mainPanel(
-      plotOutput("expPlot")
+      plotOutput("mapPlot")
              )
     
                )

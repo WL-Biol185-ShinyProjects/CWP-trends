@@ -211,5 +211,11 @@ toMerge <- final_join[,-c(2:6, 8)]
 
 #Save counties polygon object for loading into server.ui
 ```{r Save Data}
-save(toMerge, file = "data/serverData.RData")
+uscounties <- rgdal::readOGR("data/counties_5m.json", "OGRGeoJSON")
+usstates   <- rgdal::readOGR("data/state_5m.json", "OGRGeoJSON")
+
+save( toMerge
+    , uscounties
+    , usstates
+    , file = "data/serverData.RData")
 ```

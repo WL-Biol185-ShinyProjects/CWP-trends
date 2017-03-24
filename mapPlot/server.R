@@ -2,14 +2,13 @@ library(shiny)
 library(dplyr)
 library(leaflet)
 
-#Load in, rename region data relating region to state
-load("mapPlot/data/serverData.RData")
+shinyServer(function (input, output) {
+  
+  output$mapPlot <- renderPlot({
+#Load in
+load("~/CWP-trends/mapPlot/data/serverData.RData")
 
 #in toMerge: n = number of the disease for that year for that region
-
-#Load in polygon info for country and state in U.S.
-usstates   <- rgdal::readOGR("mapPlot/data/state_5m.json", "OGRGeoJSON")
-uscounties <- rgdal::readOGR("mapPlot/data/counties_5m.json", "OGRGeoJSON")
 
 value <- toMerge %>%
             filter(XRAY_YEAR >= input$slider[1], XRAY_YEAR <= input$slider[2]) %>%
@@ -33,24 +32,6 @@ leaflet(data = uscounties) %>%
   addTiles() %>%
   addPolygons(color = ~colorNumeric("YlOrRd", sumTotal)(sumTotal), fillOpacity = 0.5, weight = 1) %>%
   addPolygons(data = usstates, color = "black", weight = 5, fillOpacity = 0)
-
-------------------------- not finished below-----------------------------------
-# Define server logic required to draw map plot
-shinyServer(function(input, output) {
-  
-  
-  
-  output$expPlot <- renderPlot({
-    rapidProg%>%
-      filter(XRAY_YEAR >= input$slider1[1], XRAY_YEAR <= input$slider1[2]) %>%
-      group_by(REGION) %>%
-      count(AGE, REGION) %>%
-      ggplot(aes(AGE, n, fill = REGION)) +
-      geom_bar(stat = "identity", position = "stack")
-    
-    
-    
   })
-  
 })
 

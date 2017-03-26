@@ -1,4 +1,5 @@
 library(shiny)
+library(leaflet)
 
 # Define UI for application that draws a histogram
 fluidPage(
@@ -22,7 +23,7 @@ fluidPage(
                 ),
     
     mainPanel(
-      plotOutput("mapPlot")
+      leafletOutput("mapPlot")
              )
     
                )

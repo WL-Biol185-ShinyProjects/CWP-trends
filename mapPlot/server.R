@@ -37,7 +37,7 @@ uscounties@data <- left_join(uscounties@data, dd.join, by = "GEO_ID")
 uscounties@data$sumTotal[is.na(uscounties@data$sumTotal)] <- 0
 
 leafletProxy("mapPlot", data = uscounties) %>%
-  addPolygons(color = ~colorNumeric("YlOrRd", uscounties@data$sumTotal)(uscounties@data$sumTotal), fillOpacity = 0.5, weight = 1) %>%
+  addPolygons(color = ~colorNumeric("YlOrRd", uscounties@data$sumTotal)(uscounties@data$sumTotal), fillOpacity = 0.5, weight = 1)
 })
 
 })

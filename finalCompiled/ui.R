@@ -1,4 +1,5 @@
 library(shiny)
+library(leaflet)
 
 navbarPage(theme = shinythemes::shinytheme("superhero"), 
                       "Trends",
@@ -45,7 +46,39 @@ navbarPage(theme = shinythemes::shinytheme("superhero"),
                         an increasing size of the large opacity or opacities.")
                       
                     )),
-           tabPanel("Geographic Plots"), #for John
+           
+           tabPanel("Geographic Plots",
+                    sidebarLayout(
+                      sidebarPanel(
+                        sliderInput( "slider1"
+                                     , label = h3("Years Mapped")
+                                     , min = 1969
+                                     , max = 2002
+                                     , value = c(1969)
+                                     , round = TRUE
+                                     , sep = ""
+                                     , animate = TRUE
+                        ),
+                        
+                        selectInput( "select1"
+                                     , label = h3("Disease Box")
+                                     , choices = list("CWP" = "CWP", "PMF" = "PMF")
+                                     , selected = 1
+                        )
+                      ),
+                      
+                      mainPanel( strong("Figure 1: xxx")
+                               , br()
+                               , p("Geographic Trends of the number of cases of 
+                                   PMF and CWP over time. Cases were grouped by 
+                                   the commonly accepted regions in the 
+                                   literature: Midwest, Southern Appalachia, 
+                                   Northern Appalachia, and West.")
+                        , leafletOutput("mapPlot")
+                      )
+                      
+                    )
+                    ),
            
            tabPanel("Exposure Plots",
                     sidebarLayout(

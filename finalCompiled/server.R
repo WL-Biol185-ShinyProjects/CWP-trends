@@ -1,8 +1,10 @@
 library(shiny)
 library(ggplot2)
 library(dplyr)
+library(leaflet)
 
 rapidProg_disease <- read.csv("../data/rapidProg_disease.csv")
+load("~/CWP-trends/mapPlot/data/serverData.RData")
 
 rapidProg_disease$REGION <- factor( rapidProg_disease$REGION
                                     , levels = c( "West"
@@ -18,6 +20,30 @@ ncsr4 <- read.csv("../data/ncsr4_clean.csv")
 ncsr4$REGION <- factor(ncsr4$REGION, levels = c("HI RANK", "MED RANK", "LOW RANK"))
 
 shinyServer(function(input, output) {
+  
+  output$mapPlot <- renderLeaflet({
+    leaflet(data = uscounties) %>%
+      addTiles() %>%
+      addPolygons(data = usstates, color = "black", weight = 5, fillOpacity = 0) %>%
+      setView(lng = -93.85, lat = 37.45, zoom = 4)
+  })
+  
+  observe({value <- toMerge %>%
+    filter(XRAY_YEAR == input$slider1[1]) %>%
+    subset(DISEASE == input$select1) %>%
+    group_by(REGION, XRAY_YEAR) %>%
+    summarise(total = mean(n))
+  toMerge$XRAY_YEAR <- NULL
+  toMerge$n         <- NULL
+  filt_toMerge <- filter(toMerge, DISEASE == input$select1)
+  join         <- left_join(filt_toMerge, value, by = "REGION")
+  dd.join      <- join[!duplicated(join), ]
+  uscounties@data <- left_join(uscounties@data, dd.join, by = "GEO_ID")
+  uscounties@data$total[is.na(uscounties@data$total)] <- 0
+  leafletProxy("mapPlot", data = uscounties) %>%
+    addPolygons(color = ~colorNumeric("YlOrRd", uscounties@data$total)(uscounties@data$total), fillOpacity = 0.5, weight = 1)
+  })
+  
   
   output$expPlot <- renderPlot({
     ncsr4 %>%

@@ -33,11 +33,6 @@ shinyServer(function(input, output) {
   output$mapPlot <- renderLeaflet({
     leaflet(data = uscounties) %>%
       addTiles() %>%
-      addPolygons( data = usstates
-                 , color = "black"
-                 , weight = 5
-                 , fillOpacity = 0
-                 ) %>%
       setView( lng = -93.85
              , lat = 37.45
              , zoom = 4
@@ -61,7 +56,7 @@ shinyServer(function(input, output) {
     join         <- left_join(filt_toMerge, value, by = "REGION")
     dd.join      <- join[!duplicated(join), ]
     
-    ##Merge dd.joi with uscounties
+    ##Merge dd.join with uscounties
     uscounties@data <- left_join(uscounties@data, dd.join, by = "GEO_ID")
     uscounties@data$total[is.na(uscounties@data$total)] <- 0
     
@@ -71,6 +66,11 @@ shinyServer(function(input, output) {
                                       , uscounties@data$total)(uscounties@data$total)
                , fillOpacity = 0.5
                , weight = 1
+               ) %>%
+    addPolygons( data = usstates
+                 , color = "black"
+                 , weight = 5
+                 , fillOpacity = 0
                )
   })
   
@@ -80,9 +80,9 @@ shinyServer(function(input, output) {
     ##Filter based on ui.R input
     ncsr4 %>%
       filter( PMF == "PMF+"
-            , EXP >= input$slider1[1]
-            , EXP <= input$slider1[2]
-            ) %>%
+             , EXP >= input$slider1[1]
+             , EXP <= input$slider1[2]
+             ) %>%
       group_by(AGE) %>%
       count(AGE, REGION) %>%
       
@@ -99,9 +99,9 @@ shinyServer(function(input, output) {
     ##Filter based on ui.R input
     ncsr4 %>%
       filter( CAT1 == "1/0+"
-            , EXP >= input$slider1[1]
-            , EXP <= input$slider1[2]
-            ) %>%
+             , EXP >= input$slider1[1]
+             , EXP <= input$slider1[2]
+             ) %>%
       group_by(AGE) %>%
       count(AGE, REGION) %>%
       

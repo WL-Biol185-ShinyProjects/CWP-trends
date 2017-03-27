@@ -107,7 +107,8 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                         PMF and CWP over time. Cases were grouped by 
                                         the commonly accepted regions in the 
                                         literature: Midwest, Southern Appalachia, 
-                                        Northern Appalachia, and West."
+                                        Central Appalachia, Northern Appalachia,
+                                        and West."
                                       )
                         
                                    , leafletOutput("mapPlot")

@@ -26,7 +26,8 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                  , align = "center"
                                  )
                            ,"Please click on a tab above to begin!"
-                           
+                           , align = "center"
+                           )
                            , br()
                            , br()
                            
@@ -37,7 +38,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                 )
                            )
                                )
-                    )
+                    
           
           ##Background Page
           , tabPanel( "Background"

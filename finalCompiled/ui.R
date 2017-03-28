@@ -89,7 +89,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                      , value = c(1969)
                                      , round = TRUE
                                      , sep = ""
-                                     , animate = TRUE
+                                     , animate = animationOptions(interval=5000)
                                      )
                           
                           , selectInput( "select1"

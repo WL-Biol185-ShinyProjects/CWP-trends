@@ -29,16 +29,6 @@ ncsr4$REGION <- factor( ncsr4$REGION, levels = c( "HI RANK"
 shinyServer(function(input, output) {
   
 ##Geographic Leaflet Map Plot  
-  ##Render Initial Leaflet map wih just state polygons
-  output$mapPlot <- renderLeaflet({
-    leaflet(data = uscounties) %>%
-      addTiles() %>%
-      setView( lng = -93.85
-             , lat = 37.45
-             , zoom = 4
-             )
-    })
-  
   ##Filter and subset data for counties colored by number of cases
   observe({
     ##Create variable 'value' containing needed values for number of cases based on parameters passed from ui.R
@@ -60,18 +50,39 @@ shinyServer(function(input, output) {
     uscounties@data <- left_join(uscounties@data, dd.join, by = "GEO_ID")
     uscounties@data$total[is.na(uscounties@data$total)] <- 0
     
+    ##Generate Color Matrix
+    colfunc <- colorRampPalette(c("white", "red"))
+    pal     <- colorNumeric( colfunc(length(unique(uscounties@data$total)))
+                           , uscounties@data$total
+                           )
+    
     ##Add in county data colored by number of cases to existing leaflet map
-    leafletProxy("mapPlot", data = uscounties) %>%
-    addPolygons( color = ~colorNumeric( "YlOrRd"
-                                      , uscounties@data$total)(uscounties@data$total)
-               , fillOpacity = 0.5
-               , weight = 1
+    output$mapPlot <- renderLeaflet({
+      leaflet( data = uscounties) %>%
+        addTiles() %>%
+        setView( lng = -93.85
+               , lat = 37.45
+               , zoom = 4
                ) %>%
-    addPolygons( data = usstates
-                 , color = "black"
-                 , weight = 5
-                 , fillOpacity = 0
-               )
+        addPolygons( color = ~pal(uscounties@data$total)
+                   , fillOpacity = 0.5
+                   , weight = 1
+                   ) %>%
+        addPolygons( data = usstates
+                   , color = "black"
+                   , weight = 2.5
+                   , fillOpacity = 0
+                   ) %>%
+        addLegend( "topleft"
+                 , pal    = pal
+                 , values = unique(uscounties@data$total)
+                 , title  = paste( "Number of"
+                                 , input$select1
+                                 , "Cases Per Year"
+                                 , sep = " "
+                                 )
+                 )
+    })
   })
   
 ##Exposure Bar Plots

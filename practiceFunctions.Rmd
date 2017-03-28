@@ -82,3 +82,9 @@ rapidProg_disease %>%
 function() { paste(input$dataset, '.csv', sep='') }
 ```
 
+```{r}
+span( "(CWP)"
+                                 , style = "color:red"
+                                 )
+```
+

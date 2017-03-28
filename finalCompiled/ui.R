@@ -9,10 +9,9 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
           , tabPanel( "Home"
                     , h1("CWP and PMF Trends", align = "center")
                     , br()
-                    , h2("Welcome!", align = "Left")
                     , br()
                     , mainPanel(
-                          p( "This application allows visualization of current trends
+                          p( "Welcome! This application allows visualization of current trends
                              of two potentially debilitating coal dust-related lung 
                              diseases: Coal Workers' Pneumoconiosis"
                              
@@ -130,18 +129,19 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                     , round = TRUE)
                                     )
                         
-                        , mainPanel( strong("Figure 2")
-                                     
+                        , mainPanel( column(6, align = "left"
+                                   , plotOutput("expPlot")       
+                                   , strong("Figure 2")
                                    , p( "The number of individuals diagnosed with PMF is 
                                         displayed as a function of age. Stacked bars represent
                                         exposure to three types of coal: high rank, medium rank,
                                         and low rank."
                                       )
+                              
+                                           )
                                
-                                   , plotOutput("expPlot")
-                               
-                                   , br()
-                               
+                                   , column(6, align = "left"
+                                   , plotOutput("cwpExpPlot")        
                                    , strong("Figure 3")
                                    
                                    , p( "The number of individuals diagnosed with CWP is 
@@ -150,10 +150,10 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                         and low rank."
                                       )
                                
-                                   , plotOutput("cwpExpPlot")
-                                   )
+                                         )                                   
                                   )
-                    )
+                                ) 
+                    ) 
           
           ##Temporal Line Plots by Region
           , tabPanel( "Temporal Plots"
@@ -166,23 +166,47 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                                  , selected = 1
                                                  )
                                      )
-                        , mainPanel( strong("Figure 4")
+                        , mainPanel(tabsetPanel( type = "pills"
+                                                 , tabPanel( "Plot"
+                                                             , plotOutput("linePlot")
+                                                 )
+                                                 , tabPanel( "Summary"
+                                                             , verbatimTextOutput("summary")
+                                                 )
+                                   , strong("Figure 4")
                                    , p( "The number of individuals with CWP or 
                                         PMF is displayed as a function of time. 
                                         Each line indicates a different coal 
                                         region."
-                                      )
+                                   , br()
+                                   , br()
+                                   , h6(span("West:", style = "color:#d62929")
+                                        , "All Counties in Arizona, Colorado, Montana, New Mexico, 
+                                        North Dakota, Oklahoma, Texas, Utah, Wyoming, and Washington.")
+                                   , h6(span("Mid-West:", style = "color:#c284e1")
+                                        , "All Counties in Illinois and Indiana; Hopkins, Union, 
+                                       and Webster Counties in Kentucky.")
+                                   ,h6(span( "Northern Appalachia:", style = "color:DeepSkyBlue")
+                                       , "All Counties in Maryland,
+                                       Pennsylvania and Ohio; Barbour, Brooke, Clay, Grant, Greenbrier,
+                                       Harrison, Lincoln, Marion, Marshall, Monongalia, Preston, Raleigh, 
+                                       Randolph, Tucker, Upshur, and Webster Counties in West Virginia.")
+                                   , h6(span("Central Appalachia:", style = "color:#2db92d") 
+                                       , "All Counties in 
+                                       Virginia and Tennessee; Bell, Boyd, Breathitt, 
+                                       Christian, Clay, Daviess, Estill, Floyd, Harlan, 
+                                       Henderson, Jackson, Johnson, Knott, Knox, Laurel, 
+                                       Lawrence, Leslie, Letcher, Martin, Mclean, Muhlenberg,
+                                       Perry, Pike, Whitley, and Wolfe Counties in Kentucky;
+                                       Boone, Fayette, Kanawha, Logan, McDowell, Mingo, Nicholas, 
+                                       Wayne, and Wyoming Counties in West Virginia.")
+                                   , h6(span("Southern Appalachia:", style = "color:Gold")
+                                       , "All Counties in Alabama, Arkansas, 
+                                       and Louisiana.")
                                    
-                                   , tabsetPanel( type = "pills"
-                                                , tabPanel( "Plot"
-                                                          , plotOutput("linePlot")
-                                                          )
-                                                , tabPanel( "Summary"
-                                                          , verbatimTextOutput("summary")
-                                                          )
-                                                )
+                                             )
                                    )
-                        )
+                                )
                     )
           
           ##References and Sources
@@ -238,4 +262,5 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                )
                     )
           )
+)
             

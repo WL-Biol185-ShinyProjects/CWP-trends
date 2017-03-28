@@ -114,6 +114,9 @@ shinyServer(function(input, output) {
     })
 
 ##Temporal Line Plots by Region
+ colpal <- c("deepskyblue2", "forestgreen", "gold2", "darkorchid2", "firebrick2") 
+ 
+ 
   output$linePlot <- renderPlot({
     ##Filter based on ui.R input
     rapidProg_disease %>%
@@ -124,6 +127,11 @@ shinyServer(function(input, output) {
       ##Plot
       ggplot(aes(XRAY_YEAR, n, color = REGION)) +
       geom_line() +
+      scale_colour_manual(values = c("Northern Appalachia" = "deepskyblue2"
+                                     , "Central Appalachia" = "forestgreen"
+                                     , "Southern Appalachia" = "gold2"
+                                     , "Mid-West" = "darkorchid2"
+                                     , "West" = "firebrick2")) +
       ggtitle("Temporal Disease Trends") +
       labs(x="Year",y="Number of Cases") +
       xlim(1969, 2002)

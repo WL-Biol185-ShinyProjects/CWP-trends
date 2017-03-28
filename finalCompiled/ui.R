@@ -7,8 +7,9 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
           
           ##Home Page
           , tabPanel( "Home"
-                    , h1("CWP and PMF Trends", align = "Left")
-                    , h2("Welcome!", align = "center")
+                    , h1("CWP and PMF Trends", align = "center")
+                    , br()
+                    , h2("Welcome!", align = "Left")
                     , br()
                     , mainPanel(
                           p( "This application allows visualization of current trends
@@ -25,6 +26,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                  , style = "color:red"
                                  , align = "center"
                                  )
+                           ,"Please click on a tab above to begin!"
                            
                            , br()
                            , br()
@@ -53,8 +55,8 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                     respirable coal dust from mining operations. It is 
                                     characerized by the presence of small opacities 
                                     (<10mm diameter) on chest radiographs. CWP is divided 
-                                    into 4 groups, Categories 0-3, indicating an increasing
-                                    profusion of small opacities throughout the lungs."
+                                    into four profusion categories, 0-3, which indicate 
+                                    increasing profusion or density of opacities in the lungs."
                                   )
                                
                                , br()
@@ -71,7 +73,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                     develop in patients with CWP. PMF is characterized by 
                                     large opacities (>10mm diameter) on a chest radiograph. 
                                     It is classified into three categories, A-C, indicating
-                                    an increasing size of the large opacity or opacities."
+                                    an increasing size of the large opacities."
                                   )
                                )
                     )

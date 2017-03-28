@@ -80,8 +80,8 @@ shinyServer(function(input, output) {
     ##Filter based on ui.R input
     ncsr4 %>%
       filter( PMF == "PMF+"
-             , EXP >= input$slider1[1]
-             , EXP <= input$slider1[2]
+             , EXP >= input$slider8[1]
+             , EXP <= input$slider8[2]
              ) %>%
       group_by(AGE) %>%
       count(AGE, REGION) %>%
@@ -99,8 +99,8 @@ shinyServer(function(input, output) {
     ##Filter based on ui.R input
     ncsr4 %>%
       filter( CAT1 == "1/0+"
-             , EXP >= input$slider1[1]
-             , EXP <= input$slider1[2]
+             , EXP >= input$slider8[1]
+             , EXP <= input$slider8[2]
              ) %>%
       group_by(AGE) %>%
       count(AGE, REGION) %>%
@@ -117,7 +117,7 @@ shinyServer(function(input, output) {
   output$linePlot <- renderPlot({
     ##Filter based on ui.R input
     rapidProg_disease %>%
-      filter(DISEASE == input$select1) %>%
+      filter(DISEASE == input$select9) %>%
       group_by(XRAY_YEAR) %>%
       count(XRAY_YEAR, REGION) %>%
       

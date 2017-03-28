@@ -38,7 +38,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                )
                     )
           
-          #Background Page
+          ##Background Page
           , tabPanel( "Background"
                     , titlePanel("Background")
                     
@@ -120,7 +120,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
           , tabPanel( "Exposure Plots"
                     , sidebarLayout(
                         sidebarPanel( "Choose:"
-                                    , sliderInput("slider1" 
+                                    , sliderInput("slider8" 
                                     , label = ("Coal Exposure (gram-hours per cubic meter)")
                                     , min = 0
                                     , max = 200
@@ -156,7 +156,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
           ##Temporal Line Plots by Region
           , tabPanel( "Temporal Plots"
                     , sidebarLayout(
-                        sidebarPanel( selectInput( "select1"
+                        sidebarPanel( selectInput( "select9"
                                                  , label = h3("Disease Box")
                                                  , choices = list( "CWP" = "CWP"
                                                                  , "PMF" = "PMF"

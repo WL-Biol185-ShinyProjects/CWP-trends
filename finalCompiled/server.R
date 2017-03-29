@@ -5,8 +5,8 @@ library(leaflet)
 
 ##Load in Data
 rapidProg_disease <- read.csv("../data/rapidProg_disease.csv")
+ncsr4             <- read.csv("../data/ncsr4_clean.csv")
 load("~/CWP-trends/mapPlot/data/serverData.RData")
-ncsr4 <- read.csv("../data/ncsr4_clean.csv")
 
 ##Edit rapidProg_disease and ncsr4 to incude factored regions for exposure and line plots
 rapidProg_disease$REGION <- factor( rapidProg_disease$REGION
@@ -29,13 +29,6 @@ ncsr4$REGION <- factor( ncsr4$REGION, levels = c( "HI RANK"
 shinyServer(function(input, output) {
   
 ##Geographic Leaflet Map Plot  
-  output$mapPlot <- renderLeaflet({
-    leaflet(data = uscounties) %>%
-      addTiles() %>%
-      addPolygons(data = usstates, color = "black", weight = 5, fillOpacity = 0) %>%
-      setView(lng = -93.85, lat = 37.45, zoom = 4)
-  })
-  
   ##Filter and subset data for counties colored by number of cases
   observe({ 
     ##Create variable 'value' containing needed values for number of cases based on parameters passed from ui.R
@@ -58,28 +51,40 @@ shinyServer(function(input, output) {
     uscounties@data$total[is.na(uscounties@data$total)] <- 0
     
     ##Generate Color Matrix
-    colfunc <- colorRampPalette(c("white", "red"))
-    pal     <- colorNumeric( colfunc(length(unique(uscounties@data$total)))
-                           , uscounties@data$total
-                           )
-    
-    ##Add in county data colored by number of cases to existing leaflet map
-    leafletProxy("mapPlot", data = uscounties) %>%
-        addPolygons( color       = ~pal(uscounties@data$total)
-                   , fillOpacity = 0.5
-                   , weight      = 1
-                   ) %>%
-        addLegend( "topleft"
-                 , pal    = pal
-                 , values = unique(uscounties@data$total)
-                 , labels = unique(uscounties@data$total)
-                 , title  = paste( "Number of"
+    colNum   <- length(unique(uscounties@data$total))
+    colfunc  <- colorRampPalette(c("white", "red"))
+    col      <- colfunc(colNum)
+    pal      <- colorNumeric( col
+                            , domain = uscounties@data$total
+                            , na.color = "#FFFFFF"
+                            )
+    mapColor <- pal(uscounties@data$total)
+  
+  ##Plot Map
+  output$mapPlot <- renderLeaflet({
+    leaflet(uscounties) %>%
+      addTiles() %>%
+      setView(lng = -93.85, lat = 37.45, zoom = 4) %>%
+      addPolygons( color       = mapColor
+                 , fillOpacity = 0.5
+                 , weight      = 1
+                 ) %>%
+      addPolygons( data        = usstates
+                 , color       = "black"
+                 , weight      = 3
+                 , fillOpacity = 0
+                 ) %>%
+      addLegend( position = "bottomleft"
+               , pal      = pal
+               , values   = unique(uscounties@data$total)
+               , title    = paste( "Number of"
                                  , input$select1
-                                 , "Cases Per Year"
-                                 , sep = " "
+                                 , "Cases per Region"
                                  )
-                 )
-    })
+               )
+  })
+})
+  
   
 ##Exposure Bar Plots
   ##PMF

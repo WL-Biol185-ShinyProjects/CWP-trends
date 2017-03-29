@@ -86,10 +86,9 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                      , label = h3("Years Mapped")
                                      , min = 1969
                                      , max = 2002
-                                     , value = c(2000)
+                                     , value = c(1969)
                                      , round = TRUE
                                      , sep = ""
-                                     , animate = animationOptions(interval=7000)
                                      )
                           
                           , selectInput( "select1"

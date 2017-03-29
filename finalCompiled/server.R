@@ -29,8 +29,15 @@ ncsr4$REGION <- factor( ncsr4$REGION, levels = c( "HI RANK"
 shinyServer(function(input, output) {
   
 ##Geographic Leaflet Map Plot  
+  output$mapPlot <- renderLeaflet({
+    leaflet(data = uscounties) %>%
+      addTiles() %>%
+      addPolygons(data = usstates, color = "black", weight = 5, fillOpacity = 0) %>%
+      setView(lng = -93.85, lat = 37.45, zoom = 4)
+  })
+  
   ##Filter and subset data for counties colored by number of cases
-  observe({
+  observe({ 
     ##Create variable 'value' containing needed values for number of cases based on parameters passed from ui.R
     value <- toMerge %>%
     filter(XRAY_YEAR == input$slider1[1]) %>%
@@ -57,25 +64,15 @@ shinyServer(function(input, output) {
                            )
     
     ##Add in county data colored by number of cases to existing leaflet map
-    output$mapPlot <- renderLeaflet({
-      leaflet( data = uscounties) %>%
-        addTiles() %>%
-        setView( lng = -93.85
-               , lat = 37.45
-               , zoom = 4
-               ) %>%
-        addPolygons( color = ~pal(uscounties@data$total)
+    leafletProxy("mapPlot", data = uscounties) %>%
+        addPolygons( color       = ~pal(uscounties@data$total)
                    , fillOpacity = 0.5
-                   , weight = 1
-                   ) %>%
-        addPolygons( data = usstates
-                   , color = "black"
-                   , weight = 2.5
-                   , fillOpacity = 0
+                   , weight      = 1
                    ) %>%
         addLegend( "topleft"
                  , pal    = pal
                  , values = unique(uscounties@data$total)
+                 , labels = unique(uscounties@data$total)
                  , title  = paste( "Number of"
                                  , input$select1
                                  , "Cases Per Year"
@@ -83,7 +80,6 @@ shinyServer(function(input, output) {
                                  )
                  )
     })
-  })
   
 ##Exposure Bar Plots
   ##PMF

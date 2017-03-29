@@ -86,15 +86,15 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                      , label = h3("Years Mapped")
                                      , min = 1969
                                      , max = 2002
-                                     , value = c(1969)
+                                     , value = c(1985)
                                      , round = TRUE
                                      , sep = ""
                                      )
                           
                           , selectInput( "select1"
                                        , label = h3("Disease Box")
-                                       , choices = list( "PMF" = "PMF"
-                                                       , "CWP" = "CWP"
+                                       , choices = list( "CWP" = "CWP"
+                                                       , "PMF" = "PMF"
                                                        )
                                        , selected = 1
                                        )

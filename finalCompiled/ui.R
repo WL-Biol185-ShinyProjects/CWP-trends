@@ -261,6 +261,20 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                   )
                                )
                     )
-          )
+          , tabPanel( "Feedback"
+                    , mainPanel(h2("Feedback")
+                    , br()
+                    , strong("- How do we speed up leaflet loading time?")
+                    , br()
+                    , strong("- What colors do thing would look good on this
+                               background to emphasize text?")
+                    , br()
+                    , strong("- For the temporal plot, is there an intuitive 
+                               connection between the lines of the plot and the
+                               words of the legend?")
+                               )
+                      
+                    )
+)
 
             

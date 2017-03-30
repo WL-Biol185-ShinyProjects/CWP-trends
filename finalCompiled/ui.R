@@ -10,7 +10,6 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                     , fillPage( h1( "CWP and PMF Trends"
                                   , align = "center"
                                   )
-
                                        
                               , br()
                               , br()

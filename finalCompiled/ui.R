@@ -7,43 +7,42 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
           
           ##Home Page
           , tabPanel( "Home"
-                    , mainPanel( column( 5, align = "center"
-                                       , h1( "CWP and PMF Trends"
-                                           , align = "center"
-                                           )
+                    , fillPage( h1( "CWP and PMF Trends"
+                                  , align = "center"
+                                  )
                                        
-                                       , br()
-                                       , br()
-                                       
-                                       , p( "Welcome! This application allows visualization of current trends
-                                            of two potentially debilitating coal dust-related lung 
-                                            diseases: Coal Workers' Pneumoconiosis"
-                             
-                                          , span( "(CWP)"
-                                                , style = "color:#ffb499"
-                                                )
+                              , br()
+                              , br()
+                              
+                              , p( "Welcome! This application allows visualization of current trends
+                                   of two potentially debilitating coal dust-related lung 
+                                   diseases: Coal Workers' Pneumoconiosis"
+                          
+                              , span( "(CWP)"
+                                    , style = "color:#ffb499"
+                                    )
+
+                              , "and Progressive Massive Fibrosis"
                            
-                                          , "and Progressive Massive Fibrosis"
-                           
-                                          , span( "(PMF)."
-                                                , style = "color:#92ede8"
-                                                , align = "center"
-                                                )
+                              , span( "(PMF)."
+                                    , style = "color:#92ede8"
+                                    , align = "center"
+                                    )
                                        
-                                          , "Please click on a tab above to begin!"
+                              , "Please click on a tab above to begin!"
                                        
-                                          , align = "center"
-                                          )
-                           , br()
-                           , br()
+                              , align = "center"
+                              )
+
+                              , br()
+                              , br()
                            
-                           , img( src = "coal2.png"
-                                , width = 480
-                                , height = 250
-                                , align = "center"
-                                )
-                           )
-                           )
+                              , img( src = "coal2.png"
+                                   , width = 480
+                                   , height = 250
+                                   , style = "display: block; margin-left: auto; margin-right: auto;"
+                                   )
+                              )
           )
                     
           

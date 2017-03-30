@@ -207,7 +207,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                              )
                                    )
                                 )
-                    )
+                    ))
           
           ##References and Sources
           , tabPanel( "References"
@@ -262,5 +262,5 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                )
                     )
           )
-)
+
             

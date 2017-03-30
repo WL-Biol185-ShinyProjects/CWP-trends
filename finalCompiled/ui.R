@@ -8,7 +8,12 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
           ##Home Page
           , tabPanel( "Home"
                     , mainPanel( column( 5, align = "center"
-                                       , h1( "CWP and PMF Trends"
+                                       , h1( span("CWP"
+                                                  , style = "color:#ffb499")
+                                             , "and"
+                                             , span( "PMF"
+                                                     , style = "color:#92ede8")
+                                            , "Trends"
                                            , align = "center"
                                            )
                                        
@@ -58,10 +63,15 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                
                                , br()
                                
-                               , p( "CWP is a lung diseased caused by inhalation of 
+                               , p(span( "CWP"
+                                            , style = "color:#ffb499")
+                                    , "is a lung diseased caused by inhalation of 
                                     respirable coal dust from mining operations. It is 
                                     characerized by the presence of small opacities 
-                                    (<10mm diameter) on chest radiographs. CWP is divided 
+                                    (<10mm diameter) on chest radiographs."
+                                    , span("CWP"
+                                    , style = "color:#ffb499")
+                                    , "is divided 
                                     into four profusion categories, 0-3, which indicate 
                                     increasing profusion or density of opacities in the lungs."
                                   )
@@ -76,8 +86,13 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                           
                                , br()
                           
-                               , p( "PMF is an often debilitating lung disease which can 
-                                    develop in patients with CWP. PMF is characterized by 
+                               , p( span( "PMF"
+                                            , style = "color:#92ede8")
+                                  , "is an often debilitating lung disease which can 
+                                    develop in patients with"
+                                  ,span("CWP"
+                                       , style = "color:#ffb499")
+                                  , "and is characterized by 
                                     large opacities (>10mm diameter) on a chest radiograph. 
                                     It is classified into three categories, A-C, indicating
                                     an increasing size of the large opacities."
@@ -112,8 +127,13 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                      
                                    , br()
                                    
-                                   , p( "Geographic Trends of the number of cases of 
-                                        PMF and CWP over time. Cases were grouped by 
+                                   , p( "Geographic Trends of the number of cases of"
+                                        , span( "PMF"
+                                                , style = "color:#92ede8")
+                                        , "and"
+                                  , span( "CWP"
+                                        , style = "color:#ffb499") 
+                                  ,"over time. Cases were grouped by 
                                         the commonly accepted regions in the 
                                         literature: Midwest, Southern Appalachia, 
                                         Central Appalachia, Northern Appalachia,
@@ -128,9 +148,8 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
           ##Exposure Bar Plots
           , tabPanel( "Exposure Plots"
                     , sidebarLayout(
-                        sidebarPanel( "Choose:"
-                                    , sliderInput("slider8" 
-                                    , label = ("Coal Exposure (gram-hours per cubic meter)")
+                        sidebarPanel(sliderInput("slider8"
+                                    , label = h3("Coal Exposure (gram-hours per cubic meter)")
                                     , min = 0
                                     , max = 200
                                     , value = c(0, 200)
@@ -140,7 +159,10 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                         , mainPanel( column(6, align = "left"
                                    , plotOutput("expPlot")       
                                    , strong("Figure 2")
-                                   , p( "The number of individuals diagnosed with PMF is 
+                                   , p( "The number of individuals diagnosed with"
+                                        , span( "PMF"
+                                                , style = "color:#92ede8")
+                                        , "is 
                                         displayed as a function of age. Stacked bars represent
                                         exposure to three types of coal: high rank, medium rank,
                                         and low rank."
@@ -152,8 +174,10 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                    , plotOutput("cwpExpPlot")        
                                    , strong("Figure 3")
                                    
-                                   , p( "The number of individuals diagnosed with CWP is 
-                                        displayed as a function of age. Stacked bars represent 
+                                   , p( "The number of individuals diagnosed with"
+                                        , span("CWP"
+                                               , style = "color:#ffb499")
+                                        , "is displayed as a function of age. Stacked bars represent 
                                         exposure to three types of coal: high rank, medium rank,
                                         and low rank."
                                       )
@@ -182,8 +206,13 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                                              , verbatimTextOutput("summary")
                                                  )
                                    , strong("Figure 4")
-                                   , p( "The number of individuals with CWP or 
-                                        PMF is displayed as a function of time. 
+                                   , p( "The number of individuals with"
+                                        , span("CWP"
+                                               , style = "color:#ffb499") 
+                                        ,"or"
+                                        , span( "PMF"
+                                                , style = "color:#92ede8")
+                                        , "is displayed as a function of time. 
                                         Each line indicates a different coal 
                                         region."
                                    , br()

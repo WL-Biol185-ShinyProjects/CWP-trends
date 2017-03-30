@@ -7,27 +7,33 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
           
           ##Home Page
           , tabPanel( "Home"
-                    , h1("CWP and PMF Trends", align = "center")
-                    , br()
-                    , br()
-                    , mainPanel(
-                          p( "Welcome! This application allows visualization of current trends
-                             of two potentially debilitating coal dust-related lung 
-                             diseases: Coal Workers' Pneumoconiosis"
+                    , mainPanel( column( 5, align = "center"
+                                       , h1( "CWP and PMF Trends"
+                                           , align = "center"
+                                           )
+                                       
+                                       , br()
+                                       , br()
+                                       
+                                       , p( "Welcome! This application allows visualization of current trends
+                                            of two potentially debilitating coal dust-related lung 
+                                            diseases: Coal Workers' Pneumoconiosis"
                              
-                           , span( "(CWP)"
-                                 , style = "color:red"
-                                 )
+                                          , span( "(CWP)"
+                                                , style = "color:#ffb499"
+                                                )
                            
-                           , "and Progressive Massive Fibrosis"
+                                          , "and Progressive Massive Fibrosis"
                            
-                           , span( "(PMF)."
-                                 , style = "color:red"
-                                 , align = "center"
-                                 )
-                           ,"Please click on a tab above to begin!"
-                           , align = "center"
-                           )
+                                          , span( "(PMF)."
+                                                , style = "color:#92ede8"
+                                                , align = "center"
+                                                )
+                                       
+                                          , "Please click on a tab above to begin!"
+                                       
+                                          , align = "center"
+                                          )
                            , br()
                            , br()
                            
@@ -37,7 +43,8 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                 , align = "center"
                                 )
                            )
-                               )
+                           )
+          )
                     
           
           ##Background Page
@@ -46,7 +53,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                     
                     , mainPanel( h3( "Coal Workers's Pneumoconiosis"
                                    , align = "left"
-                                   , style = "color:red"
+                                   , style = "color:#ffb499"
                                    )
                                
                                , br()
@@ -64,7 +71,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                           
                                , h3( "Progressive Massive Fibrosis"
                                , align = "left"
-                               , style = "color:red"
+                               , style = "color:#92ede8"
                                )
                           
                                , br()
@@ -76,6 +83,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                     an increasing size of the large opacities."
                                   )
                                )
+                    , width = 12
                     )
           
           ##Geographic Leaflet Map Plot
@@ -207,7 +215,8 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                              )
                                    )
                                 )
-                    ))
+                    )
+                    )
           
           ##References and Sources
           , tabPanel( "References"
@@ -261,6 +270,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                   )
                                )
                     )
+          
           , tabPanel( "Feedback"
                     , mainPanel(h2("Feedback")
                     , br()

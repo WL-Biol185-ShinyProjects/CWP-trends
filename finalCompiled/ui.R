@@ -7,24 +7,10 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
           
           ##Home Page
           , tabPanel( "Home"
-<<<<<<< HEAD
-                    , mainPanel( column( 5, align = "center"
-                                       , h1( span("CWP"
-                                                  , style = "color:#ffb499")
-                                             , "and"
-                                             , span( "PMF"
-                                                     , style = "color:#92ede8")
-                                            , "Trends"
-                                           , align = "center"
-                                           )
-                                       
-                                       , br()
-                                       , br()
-=======
                     , fillPage( h1( "CWP and PMF Trends"
                                   , align = "center"
                                   )
->>>>>>> 2f46462d9df13a5b29a7df8b8f697f6aa4d87ad6
+
                                        
                               , br()
                               , br()

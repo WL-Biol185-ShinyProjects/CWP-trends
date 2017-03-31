@@ -117,25 +117,98 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                        )
                                     )
                         
-                        , mainPanel( strong("Figure 1: xxx")
+                        , mainPanel( leafletOutput("mapPlot")
+                                   , strong("Figure 1")
                                      
                                    , br()
                                    
-                                   , p( "Geographic Trends of the number of cases of"
-                                        , span( "PMF"
-                                                , style = "color:#92ede8")
-                                        , "and"
-                                  , span( "CWP"
-                                        , style = "color:#ffb499") 
-                                  ,"over time. Cases were grouped by 
+                                   , p( "Geographic Trends of the number of"
+                                        
+                                      , span( "PMF", style = "color:#92ede8")
+                                      
+                                      , " cases and"
+                                      
+                                      , span( "CWP", style = "color:#ffb499")
+                                      
+                                      , "over time. Cases were grouped by 
                                         the commonly accepted regions in the 
-                                        literature: Midwest, Southern Appalachia, 
-                                        Central Appalachia, Northern Appalachia,
-                                        and West."
+                                        literature: "
+                                      
+                                      , span( "West", style = "color:#d62929")
+                                      , ","
+                                      , span( "Mid-West"
+                                            , style = "color:#c284e1"
+                                            )
+                                      , ","
+                                      , span( "Northern Appalachia"
+                                            , style = "color:DeepSkyBlue"
+                                            )
+                                      , ","
+                                      , span( "Central Appalachia"
+                                            , style = "color:#2db92d"
+                                            )
+                                      , ","
+                                      , "and"
+                                      
+                                      , span( "Southern Appalachia"
+                                            , style = "color:Gold"
+                                            )
+                                      
+                                      , "."
                                       )
-                        
-                                   , leafletOutput("mapPlot")
-                                   )
+                                  
+                                  , br()
+                                  , br()
+                                  
+                                  , h6( span("West:", style = "color:#d62929")
+                                      , "All Counties in Arizona, Colorado, 
+                                        Montana, New Mexico, North Dakota, 
+                                        Oklahoma, Texas, Utah, Wyoming, and 
+                                        Washington."
+                                      )
+                                  
+                                  , h6( span( "Mid-West:"
+                                            , style = "color:#c284e1"
+                                            )
+                                      , "All Counties in Illinois and Indiana; 
+                                        Hopkins, Union, and Webster Counties in 
+                                        Kentucky."
+                                      )
+                                  
+                                  , h6( span( "Northern Appalachia:"
+                                            , style = "color:DeepSkyBlue"
+                                            )
+                                      , "All Counties in Maryland,
+                                        Pennsylvania and Ohio; Barbour, Brooke, 
+                                        Clay, Grant, Greenbrier,Harrison, 
+                                        Lincoln, Marion, Marshall, Monongalia, 
+                                        Preston, Raleigh, Randolph, Tucker, 
+                                        Upshur, and Webster Counties in West 
+                                        Virginia."
+                                      )
+                                  
+                                  , h6( span( "Central Appalachia:"
+                                            , style = "color:#2db92d"
+                                            ) 
+                                      , "All Counties in Virginia and Tennessee;
+                                        Bell, Boyd, Breathitt, Christian, Clay, 
+                                        Daviess, Estill, Floyd, Harlan, 
+                                        Henderson, Jackson, Johnson, Knott, Knox
+                                        , Laurel, Lawrence, Leslie, Letcher, 
+                                        Martin, Mclean, Muhlenberg, Perry, Pike,
+                                        Whitley, and Wolfe Counties in Kentucky;
+                                        Boone, Fayette, Kanawha, Logan, McDowell
+                                        , Mingo, Nicholas, Wayne, and Wyoming 
+                                        Counties in West Virginia."
+                                      )
+                                  
+                                  , h6( span( "Southern Appalachia:"
+                                            , style = "color:Gold"
+                                            )
+                                       , "All Counties in Alabama, Arkansas, 
+                                       and Louisiana."
+                                       )
+                                      )
                                    )
                     )
           
@@ -217,7 +290,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                    , h6(span("Mid-West:", style = "color:#c284e1")
                                         , "All Counties in Illinois and Indiana; Hopkins, Union, 
                                        and Webster Counties in Kentucky.")
-                                   ,h6(span( "Northern Appalachia:", style = "color:DeepSkyBlue")
+                                   , h6(span( "Northern Appalachia:", style = "color:DeepSkyBlue")
                                        , "All Counties in Maryland,
                                        Pennsylvania and Ohio; Barbour, Brooke, Clay, Grant, Greenbrier,
                                        Harrison, Lincoln, Marion, Marshall, Monongalia, Preston, Raleigh, 

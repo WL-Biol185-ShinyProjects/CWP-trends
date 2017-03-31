@@ -17,20 +17,13 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                               , p( "Welcome! This application allows visualization of current trends
                                    of two potentially debilitating coal dust-related lung 
                                    diseases: Coal Workers' Pneumoconiosis"
-                          
-                              , span( "(CWP)"
-                                    , style = "color:#ffb499"
-                                    )
-
+                              , span( "(CWP)", style = "color:#ffb499")
                               , "and Progressive Massive Fibrosis"
-                           
                               , span( "(PMF)."
                                     , style = "color:#92ede8"
                                     , align = "center"
                                     )
-                                       
                               , "Please click on a tab above to begin!"
-                                       
                               , align = "center"
                               )
 
@@ -43,7 +36,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                    , style = "display: block; margin-left: auto; margin-right: auto;"
                                    )
                               )
-          )
+                    )
                     
           
           ##Background Page
@@ -57,17 +50,18 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                
                                , br()
                                
-                               , p(span( "CWP"
-                                            , style = "color:#ffb499")
-                                    , "is a lung diseased caused by inhalation of 
-                                    respirable coal dust from mining operations. It is 
-                                    characerized by the presence of small opacities 
-                                    (<10mm diameter) on chest radiographs."
-                                    , span("CWP"
-                                    , style = "color:#ffb499")
-                                    , "is divided 
-                                    into four profusion categories, 0-3, which indicate 
-                                    increasing profusion or density of opacities in the lungs."
+                               , p( span( "CWP", style = "color:#ffb499")
+                                  , "is a lung diseased caused by inhalation 
+                                    of respirable coal dust from mining 
+                                    operations. It is characerized by the 
+                                    presence of small opacities (<10mm diameter)
+                                    on chest radiographs."
+                                  , span("CWP"
+                                  , style = "color:#ffb499")
+                                  , "is divided 
+                                    into four profusion categories, 0-3, which 
+                                    indicate increasing profusion or density of 
+                                    opacities in the lungs."
                                   )
                                
                                , br()
@@ -80,20 +74,20 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                           
                                , br()
                           
-                               , p( span( "PMF"
-                                            , style = "color:#92ede8")
-                                  , "is an often debilitating lung disease which can 
-                                    develop in patients with"
-                                  ,span("CWP"
-                                       , style = "color:#ffb499")
-                                  , "and is characterized by 
-                                    large opacities (>10mm diameter) on a chest radiograph. 
-                                    It is classified into three categories, A-C, indicating
-                                    an increasing size of the large opacities."
+                               , p( span( "PMF", style = "color:#92ede8")
+                                  , "is an often debilitating lung disease which
+                                    can develop in patients with"
+                                  , span("CWP", style = "color:#ffb499")
+                                  , "and is characterized by large opacities 
+                                    (>10mm diameter) on a chest radiograph. It 
+                                    is classified into three categories, A-C, 
+                                    indicatingan increasing size of the large 
+                                    opacities."
                                   )
                                )
                     , width = 12
                     )
+          
           
           ##Geographic Leaflet Map Plot
           , tabPanel( "Geographic Plots"
@@ -123,17 +117,12 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                    , br()
                                    
                                    , p( "Geographic Trends of the number of"
-                                        
                                       , span( "PMF", style = "color:#92ede8")
-                                      
                                       , " cases and"
-                                      
                                       , span( "CWP", style = "color:#ffb499")
-                                      
                                       , "over time. Cases were grouped by 
                                         the commonly accepted regions in the 
                                         literature: "
-                                      
                                       , span( "West", style = "color:#d62929")
                                       , ","
                                       , span( "Mid-West"
@@ -149,11 +138,9 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                             )
                                       , ","
                                       , "and"
-                                      
                                       , span( "Southern Appalachia"
                                             , style = "color:Gold"
                                             )
-                                      
                                       , "."
                                       )
                                   
@@ -205,12 +192,13 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                   , h6( span( "Southern Appalachia:"
                                             , style = "color:Gold"
                                             )
-                                       , "All Counties in Alabama, Arkansas, 
-                                       and Louisiana."
-                                       )
+                                      , "All Counties in Alabama, Arkansas, 
+                                        and Louisiana."
                                       )
+                                  )
                                    )
                     )
+
           
           ##Exposure Bar Plots
           , tabPanel( "Exposure Plots"
@@ -224,26 +212,27 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                     )
                         
                         , mainPanel( column(6, align = "left"
-                                   , plotOutput("expPlot")       
+                                   , plotOutput("expPlot")
+                                   
                                    , strong("Figure 2")
+                                   
                                    , p( "The number of individuals diagnosed with"
-                                        , span( "PMF"
-                                                , style = "color:#92ede8")
+                                        , span( "PMF", style = "color:#92ede8")
                                         , "is 
-                                        displayed as a function of age. Stacked bars represent
-                                        exposure to three types of coal: high rank, medium rank,
-                                        and low rank."
+                                          displayed as a function of age. Stacked bars represent
+                                          exposure to three types of coal: high rank, medium rank,
+                                          and low rank."
                                       )
                               
                                            )
                                
                                    , column(6, align = "left"
-                                   , plotOutput("cwpExpPlot")        
+                                   , plotOutput("cwpExpPlot") 
+                                   
                                    , strong("Figure 3")
                                    
                                    , p( "The number of individuals diagnosed with"
-                                        , span("CWP"
-                                               , style = "color:#ffb499")
+                                        , span( "CWP", style = "color:#ffb499")
                                         , "is displayed as a function of age. Stacked bars represent 
                                         exposure to three types of coal: high rank, medium rank,
                                         and low rank."
@@ -251,8 +240,9 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                
                                          )                                   
                                   )
-                                ) 
+                                 ) 
                     ) 
+          
           
           ##Temporal Line Plots by Region
           , tabPanel( "Temporal Plots"
@@ -265,54 +255,81 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                                  , selected = 1
                                                  )
                                      )
+                        
                         , mainPanel(tabsetPanel( type = "pills"
-                                                 , tabPanel( "Plot"
-                                                             , plotOutput("linePlot")
-                                                 )
-                                                 , tabPanel( "Summary"
-                                                             , verbatimTextOutput("summary")
-                                                 )
+                                               , tabPanel( "Plot"
+                                                         , plotOutput("linePlot")
+                                                         )
+                                               , tabPanel( "Summary"
+                                                         , verbatimTextOutput("summary")
+                                                         )
+                                               
                                    , strong("Figure 4")
+                                   
                                    , p( "The number of individuals with"
-                                        , span("CWP"
-                                               , style = "color:#ffb499") 
-                                        ,"or"
-                                        , span( "PMF"
-                                                , style = "color:#92ede8")
-                                        , "is displayed as a function of time. 
+                                      , span("CWP", style = "color:#ffb499") 
+                                      ,"or"
+                                      , span( "PMF", style = "color:#92ede8")
+                                      , "is displayed as a function of time. 
                                         Each line indicates a different coal 
                                         region."
-                                   , br()
-                                   , br()
-                                   , h6(span("West:", style = "color:#d62929")
-                                        , "All Counties in Arizona, Colorado, Montana, New Mexico, 
-                                        North Dakota, Oklahoma, Texas, Utah, Wyoming, and Washington.")
-                                   , h6(span("Mid-West:", style = "color:#c284e1")
-                                        , "All Counties in Illinois and Indiana; Hopkins, Union, 
-                                       and Webster Counties in Kentucky.")
-                                   , h6(span( "Northern Appalachia:", style = "color:DeepSkyBlue")
-                                       , "All Counties in Maryland,
-                                       Pennsylvania and Ohio; Barbour, Brooke, Clay, Grant, Greenbrier,
-                                       Harrison, Lincoln, Marion, Marshall, Monongalia, Preston, Raleigh, 
-                                       Randolph, Tucker, Upshur, and Webster Counties in West Virginia.")
-                                   , h6(span("Central Appalachia:", style = "color:#2db92d") 
-                                       , "All Counties in 
-                                       Virginia and Tennessee; Bell, Boyd, Breathitt, 
-                                       Christian, Clay, Daviess, Estill, Floyd, Harlan, 
-                                       Henderson, Jackson, Johnson, Knott, Knox, Laurel, 
-                                       Lawrence, Leslie, Letcher, Martin, Mclean, Muhlenberg,
-                                       Perry, Pike, Whitley, and Wolfe Counties in Kentucky;
-                                       Boone, Fayette, Kanawha, Logan, McDowell, Mingo, Nicholas, 
-                                       Wayne, and Wyoming Counties in West Virginia.")
-                                   , h6(span("Southern Appalachia:", style = "color:Gold")
-                                       , "All Counties in Alabama, Arkansas, 
-                                       and Louisiana.")
+                                      , br()
+                                      , br()
+                                      , h6( span( "West:"
+                                                , style = "color:#d62929"
+                                                )
+                                          , "All Counties in Arizona, Colorado, 
+                                            Montana, New Mexico, North Dakota, 
+                                            Oklahoma, Texas, Utah, Wyoming, and 
+                                            Washington."
+                                          )
+                                      , h6( span( "Mid-West:"
+                                                , style = "color:#c284e1"
+                                                )
+                                          , "All Counties in Illinois and 
+                                            Indiana; Hopkins, Union, and Webster
+                                            Counties in Kentucky."
+                                          )
+                                      , h6( span( "Northern Appalachia:"
+                                                , style = "color:DeepSkyBlue"
+                                                )
+                                          , "All Counties in Maryland, 
+                                            Pennsylvania and Ohio; Barbour, 
+                                            Brooke, Clay, Grant, Greenbrier, 
+                                            Harrison, Lincoln, Marion, Marshall,
+                                            Monongalia, Preston, Raleigh, 
+                                            Randolph, Tucker, Upshur, and 
+                                            Webster Counties in West Virginia."
+                                          )
+                                      , h6( span( "Central Appalachia:"
+                                                , style = "color:#2db92d"
+                                                ) 
+                                          , "All Counties in Virginia and 
+                                            Tennessee; Bell, Boyd, Breathitt, 
+                                            Christian, Clay, Daviess, Estill, 
+                                            Floyd, Harlan, Henderson, Jackson, 
+                                            Johnson, Knott, Knox, Laurel, 
+                                            Lawrence, Leslie, Letcher, Martin, 
+                                            Mclean, Muhlenberg, Perry, Pike, 
+                                            Whitley, and Wolfe Counties in 
+                                            Kentucky; Boone, Fayette, Kanawha, 
+                                            Logan, McDowell, Mingo, Nicholas, 
+                                            Wayne, and Wyoming Counties in West 
+                                            Virginia."
+                                          )
+                                      , h6( span( "Southern Appalachia:"
+                                                , style = "color:Gold"
+                                                )
+                                           , "All Counties in Alabama, Arkansas,
+                                             and Louisiana."
+                                           )
                                    
-                                             )
-                                   )
-                                )
+                                      )
+                                               )
+                                      )
+                                    )
                     )
-                    )
+          
           
           ##References and Sources
           , tabPanel( "References"
@@ -369,18 +386,21 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
           
           , tabPanel( "Feedback"
                     , mainPanel(h2("Feedback")
+                                
                     , br()
+                    
                     , strong("- How do we speed up leaflet loading time?")
+                    
                     , br()
+                    
                     , strong("- What colors do thing would look good on this
                                background to emphasize text?")
                     , br()
+                    
                     , strong("- For the temporal plot, is there an intuitive 
                                connection between the lines of the plot and the
                                words of the legend?")
                                )
                       
                     )
-)
-
-            
+          )

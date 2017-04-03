@@ -1,6 +1,6 @@
 # CWP-trends
 Visualizing geographic, temporal, and exposure trends in CWP and PMF for coal miners in the U.S. 
-Init on 20170312
+Init on 20170312.
 
 Developed using Cinema 4D and Unity; optimized for Vive VR.
 
@@ -16,7 +16,8 @@ ncsr4 Data: https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html
 
 GeoJSON data: http://eric.clst.org/wupl/Stuff/gz_2010_us_050_00_5m.json
               http://eric.clst.org/wupl/Stuff/gz_2010_us_040_00_5m.json
-              https://www.census.gov/
+
+https://www.census.gov/
 
 ## Special thanks to:
 * Dr. Gregg Whitworth

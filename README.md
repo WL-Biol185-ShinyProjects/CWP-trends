@@ -7,13 +7,16 @@ Developed using Cinema 4D and Unity; optimized for Vive VR.
 ## **References**
 
 Coal Picture: http://www.pittstoncity.org/wp-content/uploads/2017/02/coal.jpg
-"International labor Office Guidelines: http://www.ilo.org/safework/info/WCMS_108548/lang--en/index.htm
+
+International labor Office Guidelines: http://www.ilo.org/safework/info/WCMS_108548/lang--en/index.htm
+
 Rapid Progression Data: https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html
+
 ncsr4 Data: https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html
+
 GeoJSON data: http://eric.clst.org/wupl/Stuff/gz_2010_us_050_00_5m.json
               http://eric.clst.org/wupl/Stuff/gz_2010_us_040_00_5m.json
-              
-              and the U.S. Census Bureau
+              https://www.census.gov/
 
 ## Special thanks to:
 * Dr. Gregg Whitworth

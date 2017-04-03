@@ -14,18 +14,19 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                               , br()
                               , br()
                               
-                              , p( "Welcome! This application allows visualization of current trends
-                                   of two potentially debilitating coal dust-related lung 
-                                   diseases: Coal Workers' Pneumoconiosis"
-                              , span( "(CWP)", style = "color:#ffb499")
-                              , "and Progressive Massive Fibrosis"
-                              , span( "(PMF)."
-                                    , style = "color:#92ede8"
-                                    , align = "center"
-                                    )
-                              , "Please click on a tab above to begin!"
-                              , align = "center"
-                              )
+                              , p( "Welcome! This application allows
+                                   visualization of current trends of two 
+                                   potentially debilitating coal dust-related 
+                                   lung diseases: Coal Workers' Pneumoconiosis"
+                                  , span( "(CWP)", style = "color:#ffb499")
+                                  , "and Progressive Massive Fibrosis"
+                                  , span( "(PMF)."
+                                        , style = "color:#92ede8"
+                                        , align = "center"
+                                        )
+                                  , "Please click on a tab above to begin!"
+                                  , align = "center"
+                                  )
 
                               , br()
                               , br()
@@ -211,37 +212,43 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                     , round = TRUE)
                                     )
                         
-                        , mainPanel( column(6, align = "left"
-                                   , plotOutput("expPlot")
+                        , mainPanel( column( 6
+                                           , align = "left"
+                                           , plotOutput("expPlot")
                                    
-                                   , strong("Figure 2")
+                                           , strong("Figure 2")
                                    
-                                   , p( "The number of individuals diagnosed with"
-                                        , span( "PMF", style = "color:#92ede8")
-                                        , "is 
-                                          displayed as a function of age. Stacked bars represent
-                                          exposure to three types of coal: high rank, medium rank,
-                                          and low rank."
-                                      )
-                              
+                                           , p( "The number of individuals diagnosed with"
+                                              , span( "PMF"
+                                                    , style = "color:#92ede8"
+                                                    )
+                                              , "is displayed as a function of age. 
+                                                Stacked bars represent exposure 
+                                                to three types of coal: high
+                                                rank, medium rank,and low rank."
+                                              )
                                            )
                                
-                                   , column(6, align = "left"
-                                   , plotOutput("cwpExpPlot") 
+                                   , column( 6
+                                           , align = "left"
+                                           , plotOutput("cwpExpPlot") 
+                                     
+                                           , strong("Figure 3")
                                    
-                                   , strong("Figure 3")
-                                   
-                                   , p( "The number of individuals diagnosed with"
-                                        , span( "CWP", style = "color:#ffb499")
-                                        , "is displayed as a function of age. Stacked bars represent 
-                                        exposure to three types of coal: high rank, medium rank,
-                                        and low rank."
-                                      )
+                                           , p( "The number of individuals diagnosed with"
+                                              , span( "CWP"
+                                                    , style = "color:#ffb499"
+                                                    )
+                                              , "is displayed as a function of age.
+                                                Stacked bars represent exposure 
+                                                to three types of coal: high 
+                                                rank, medium rank, and low rank."
+                                              )
                                
-                                         )                                   
+                                           )
                                   )
                                  ) 
-                    ) 
+                    )
           
           
           ##Temporal Line Plots by Region
@@ -264,67 +271,85 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                                          , verbatimTextOutput("summary")
                                                          )
                                                
-                                   , strong("Figure 4")
+                                               , strong("Figure 4")
                                    
-                                   , p( "The number of individuals with"
-                                      , span("CWP", style = "color:#ffb499") 
-                                      ,"or"
-                                      , span( "PMF", style = "color:#92ede8")
-                                      , "is displayed as a function of time. 
-                                        Each line indicates a different coal 
-                                        region."
-                                      , br()
-                                      , br()
-                                      , h6( span( "West:"
-                                                , style = "color:#d62929"
-                                                )
-                                          , "All Counties in Arizona, Colorado, 
-                                            Montana, New Mexico, North Dakota, 
-                                            Oklahoma, Texas, Utah, Wyoming, and 
-                                            Washington."
-                                          )
-                                      , h6( span( "Mid-West:"
-                                                , style = "color:#c284e1"
-                                                )
-                                          , "All Counties in Illinois and 
-                                            Indiana; Hopkins, Union, and Webster
-                                            Counties in Kentucky."
-                                          )
-                                      , h6( span( "Northern Appalachia:"
-                                                , style = "color:DeepSkyBlue"
-                                                )
-                                          , "All Counties in Maryland, 
-                                            Pennsylvania and Ohio; Barbour, 
-                                            Brooke, Clay, Grant, Greenbrier, 
-                                            Harrison, Lincoln, Marion, Marshall,
-                                            Monongalia, Preston, Raleigh, 
-                                            Randolph, Tucker, Upshur, and 
-                                            Webster Counties in West Virginia."
-                                          )
-                                      , h6( span( "Central Appalachia:"
-                                                , style = "color:#2db92d"
-                                                ) 
-                                          , "All Counties in Virginia and 
-                                            Tennessee; Bell, Boyd, Breathitt, 
-                                            Christian, Clay, Daviess, Estill, 
-                                            Floyd, Harlan, Henderson, Jackson, 
-                                            Johnson, Knott, Knox, Laurel, 
-                                            Lawrence, Leslie, Letcher, Martin, 
-                                            Mclean, Muhlenberg, Perry, Pike, 
-                                            Whitley, and Wolfe Counties in 
-                                            Kentucky; Boone, Fayette, Kanawha, 
-                                            Logan, McDowell, Mingo, Nicholas, 
-                                            Wayne, and Wyoming Counties in West 
-                                            Virginia."
-                                          )
-                                      , h6( span( "Southern Appalachia:"
-                                                , style = "color:Gold"
-                                                )
-                                           , "All Counties in Alabama, Arkansas,
-                                             and Louisiana."
-                                           )
+                                               , p( "The number of individuals with"
+                                                  , span( "CWP"
+                                                        , style = "color:#ffb499"
+                                                        ) 
+                                                  ,"or"
+                                                  , span( "PMF"
+                                                        , style = "color:#92ede8"
+                                                        )
+                                                  , "is displayed as a function 
+                                                    of time. Each line indicates  
+                                                    a different coal region."
+                                                  , br()
+                                                  , br()
+                                                  , h6( span( "West:"
+                                                            , style = "color:#d62929"
+                                                            )
+                                                      , "All Counties in Arizona 
+                                                        , Colorado, Montana,  
+                                                        New Mexico, North Dakota
+                                                        , Oklahoma, Texas, Utah,
+                                                        Wyoming, and Washington."
+                                                      )
+                                                  , h6( span( "Mid-West:"
+                                                            , style = "color:#c284e1"
+                                                            )
+                                                      , "All Counties in 
+                                                        Illinois and Indiana; 
+                                                        Hopkins, Union, and 
+                                                        Webster Counties in 
+                                                        Kentucky."
+                                                      )
+                                                  , h6( span( "Northern Appalachia:"
+                                                            , style = "color:DeepSkyBlue"
+                                                            )
+                                                      , "All Counties in Maryland
+                                                        , Pennsylvania and Ohio;
+                                                        Barbour, Brooke, Clay, 
+                                                        Grant, Greenbrier, 
+                                                        Harrison, Lincoln, 
+                                                        Marion, Marshall, 
+                                                        Monongalia, Preston, 
+                                                        Raleigh, Randolph, 
+                                                        Tucker, Upshur, and 
+                                                        Webster Counties in West
+                                                        Virginia."
+                                                      )
+                                      
+                                                  , h6( span( "Central Appalachia:"
+                                                            , style = "color:#2db92d"
+                                                            ) 
+                                                      , "All Counties in Virginia 
+                                                        and Tennessee; Bell, Boyd
+                                                        , Breathitt, Christian, 
+                                                        Clay, Daviess, Estill, 
+                                                        Floyd, Harlan, Henderson
+                                                        , Jackson, Johnson, Knott
+                                                        , Knox, Laurel, Lawrence
+                                                        , Leslie, Letcher, Martin
+                                                        , Mclean, Muhlenberg, 
+                                                        Perry, Pike, Whitley, 
+                                                        and Wolfe Counties in 
+                                                        Kentucky; Boone, Fayette
+                                                        , Kanawha, Logan, 
+                                                        McDowell, Mingo, Nicholas
+                                                        , Wayne, and Wyoming 
+                                                        Counties in West 
+                                                        Virginia."
+                                                      )
+                                      
+                                                  , h6( span( "Southern Appalachia:"
+                                                            , style = "color:Gold"
+                                                            )
+                                                      , "All Counties in Alabama
+                                                        , Arkansas, and Louisiana."
+                                                      )
                                    
-                                      )
+                                                  )
                                                )
                                       )
                                     )
@@ -340,7 +365,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                
                                , p( "Coal Picture from"
                                   , span( "http://www.pittstoncity.org/wp-content/uploads/2017/02/coal.jpg"
-                                        , style = "color:red"
+                                        , style = "color:#b3b3ff"
                                         )
                                   )
                                
@@ -348,11 +373,10 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                
                                , p( "International labor Office Guidelines from"
                                   , span( "http://www.ilo.org/safework/info/WCMS_108548/lang--en/index.htm"
-                                        , style = "color:red"
+                                        , style = "color:#b3b3ff"
                                         )
                                   )
                                
-                               , br()
                                , br()
                                , br()
                                
@@ -363,9 +387,9 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                                , class = NULL
                                                )
                                
-                               , p( "from"
+                               , p( "from:"
                                   , span( "https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html"
-                                        , style = "color:red"
+                                        , style = "color:#b3b3ff"
                                         )
                                   )
                                
@@ -376,31 +400,40 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                                , class = NULL
                                                )
                                
-                               , p( "from"
+                               , p( "from:"
                                   , span( "https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html"
-                                        , style = "color:red"
+                                        , style = "color:#b3b3ff"
                                         )
                                   )
+                               
+                               , p( "GeoJSON data from:"
+                                  , br()
+                                  , span( "http://eric.clst.org/wupl/Stuff/gz_2010_us_050_00_5m.json"
+                                        , style = "color:#b3b3ff"
+                                        )
+                                  , br()
+                                  , span( "http://eric.clst.org/wupl/Stuff/gz_2010_us_040_00_5m.json"
+                                        , style = "color:#b3b3ff"
+                                        )
+                                  , br()
+                                  , "and the U.S. Census Bureau."
+                                  )
                                )
-                    )
+          )
           
           , tabPanel( "Feedback"
                     , mainPanel(h2("Feedback")
-                                
-                    , br()
-                    
-                    , strong("- How do we speed up leaflet loading time?")
-                    
-                    , br()
-                    
-                    , strong("- What colors do thing would look good on this
-                               background to emphasize text?")
-                    , br()
-                    
-                    , strong("- For the temporal plot, is there an intuitive 
-                               connection between the lines of the plot and the
-                               words of the legend?")
+                               , br()
+                               , strong("- How do we speed up leaflet loading time?")
+                               , br()
+                               , strong( "- What colors do thing would look good on this
+                                         background to emphasize text?"
+                                       )
+                               , br()
+                               , strong( "- For the temporal plot, is there an 
+                                         intuitive connection between the lines 
+                                         of the plot and the words of the legend?"
+                                       )
                                )
-                      
                     )
           )

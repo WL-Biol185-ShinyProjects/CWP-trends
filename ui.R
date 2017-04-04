@@ -364,7 +364,9 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                , br()
                                
                                , p( "Coal Picture from"
-                                  , span( "http://www.pittstoncity.org/wp-content/uploads/2017/02/coal.jpg"
+                                  , span( a( href = "http://www.pittstoncity.org/wp-content/uploads/2017/02/coal.jpg"
+                                           , "http://www.pittstoncity.org/wp-content/uploads/2017/02/coal.jpg"
+                                           )
                                         , style = "color:#b3b3ff"
                                         )
                                   )
@@ -372,7 +374,8 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                , br()
                                
                                , p( "International labor Office Guidelines from"
-                                  , span( "http://www.ilo.org/safework/info/WCMS_108548/lang--en/index.htm"
+                                  , span( a( href = "http://www.ilo.org/safework/info/WCMS_108548/lang--en/index.htm"
+                                           , "http://www.ilo.org/safework/info/WCMS_108548/lang--en/index.htm")
                                         , style = "color:#b3b3ff"
                                         )
                                   )
@@ -388,7 +391,8 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                                )
                                
                                , p( "from:"
-                                  , span( "https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html"
+                                  , span( a( href = "https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html"
+                                           , "https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html")
                                         , style = "color:#b3b3ff"
                                         )
                                   )
@@ -401,18 +405,21 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                                )
                                
                                , p( "from:"
-                                  , span( "https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html"
+                                  , span( a( href = "https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html"
+                                           , "https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html")
                                         , style = "color:#b3b3ff"
                                         )
                                   )
                                
                                , p( "GeoJSON data from:"
                                   , br()
-                                  , span( "http://eric.clst.org/wupl/Stuff/gz_2010_us_050_00_5m.json"
+                                  , span( a( href = "http://eric.clst.org/wupl/Stuff/gz_2010_us_050_00_5m.json"
+                                           , "http://eric.clst.org/wupl/Stuff/gz_2010_us_050_00_5m.json")
                                         , style = "color:#b3b3ff"
                                         )
                                   , br()
-                                  , span( "http://eric.clst.org/wupl/Stuff/gz_2010_us_040_00_5m.json"
+                                  , span( a( href = "http://eric.clst.org/wupl/Stuff/gz_2010_us_040_00_5m.json"
+                                           , "http://eric.clst.org/wupl/Stuff/gz_2010_us_040_00_5m.json")
                                         , style = "color:#b3b3ff"
                                         )
                                   , br()
@@ -420,20 +427,4 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                   )
                                )
           )
-          
-          , tabPanel( "Feedback"
-                    , mainPanel(h2("Feedback")
-                               , br()
-                               , strong("- How do we speed up leaflet loading time?")
-                               , br()
-                               , strong( "- What colors do you think would look good on this
-                                         background to emphasize text?"
-                                       )
-                               , br()
-                               , strong( "- For the temporal plot, is there an 
-                                         intuitive connection between the lines 
-                                         of the plot and the words of the legend?"
-                                       )
-                               )
-                    )
           )

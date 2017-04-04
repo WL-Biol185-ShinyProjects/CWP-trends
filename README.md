@@ -3,8 +3,6 @@ Visualizing geographic, temporal, and exposure trends in CWP and PMF for coal mi
 Init on 20170312.
 Created for in conjunction with Mike North Jr. for Dr. Gregg Whitworth's BIOL 185 course: Data Science: Explore Big Data; at Washington and Lee University.
 
-Developed using Cinema 4D and Unity; optimized for Vive VR.
-
 ## **References**
 
 Coal Picture: http://www.pittstoncity.org/wp-content/uploads/2017/02/coal.jpg
@@ -24,7 +22,7 @@ https://www.census.gov/
 * Dr. Gregg Whitworth
 
 # Copyright and Licensing
-Copyright 2016 John Bowman, Michael North Jr.
+Copyright (C) 2016 John Bowman, Michael North Jr.
 
 This file is part of CWP-trends.
 

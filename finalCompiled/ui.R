@@ -426,7 +426,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                , br()
                                , strong("- How do we speed up leaflet loading time?")
                                , br()
-                               , strong( "- What colors do thing would look good on this
+                               , strong( "- What colors do you think would look good on this
                                          background to emphasize text?"
                                        )
                                , br()

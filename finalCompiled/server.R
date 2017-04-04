@@ -63,7 +63,7 @@ shinyServer(function(input, output) {
   ##Plot Map
   output$mapPlot <- renderLeaflet({
     leaflet(uscounties) %>%
-      addTiles() %>%
+      addTiles(options = tileOptions(noWrap = TRUE)) %>%
       setView(lng = -93.85, lat = 37.45, zoom = 4) %>%
       addPolygons( color       = mapColor
                  , fillOpacity = 0.5

@@ -1,6 +1,7 @@
 # CWP-trends
 Visualizing geographic, temporal, and exposure trends in CWP and PMF for coal miners in the U.S. 
 Init on 20170312.
+Created for in conjunction with Mike North Jr. for Dr. Gregg Whitworth's BIOL 185 course: Data Science: Explore Big Data; at Washington and Lee University.
 
 Developed using Cinema 4D and Unity; optimized for Vive VR.
 

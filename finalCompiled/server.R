@@ -6,7 +6,7 @@ library(leaflet)
 ##Load in Data
 rapidProg_disease <- read.csv("../data/rapidProg_disease.csv")
 ncsr4             <- read.csv("../data/ncsr4_clean.csv")
-load("~/CWP-trends/mapPlot/data/serverData.RData")
+load("../mapPlot/data/serverData.RData")
 
 ##Edit rapidProg_disease and ncsr4 to incude factored regions for exposure and line plots
 rapidProg_disease$REGION <- factor( rapidProg_disease$REGION

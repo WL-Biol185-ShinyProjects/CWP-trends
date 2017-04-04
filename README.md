@@ -22,7 +22,7 @@ https://www.census.gov/
 * Dr. Gregg Whitworth
 
 # Copyright and Licensing
-Copyright 2016 John Bowman, Michael North Jr.
+Copyright (C) 2016 John Bowman, Michael North Jr.
 
 This file is part of CWP-trends.
 

@@ -1,0 +1,73 @@
+      Advanced Cases of Coal Workers’ Pneumoconiosis – 
+         Two Counties, Virginia, 2006
+
+SAS Dataset:     CaseStudy.sas7bdat
+Text File:       CaseStudy.csv
+
+
+                DATA DICTIONARY
+ 
++----------------------------------------------------------------------------+
+¦ Field Name            ¦ Field Contents                                     ¦
+¦-----------------------+----------------------------------------------------¦
+¦ XRAY_GROUP            ¦ Unique number assigned to each miner               ¦
+¦-----------------------+----------------------------------------------------¦
+¦ XRAY_YEAR             ¦ Year the x-ray was taken                           ¦
+¦-----------------------+----------------------------------------------------¦
+¦ AGE_GROUP             ¦ Group in which age falls for the last x-ray for a  ¦
+¦                       ¦ miner; for all other x-rays this value is blank or ¦
+¦                       ¦ missing. These are grouped in increments of 10.    |
+¦                       ¦                                                    ¦
+¦                       ¦ GROUP RANGE       GROUP RANGE       GROUP RANGE    ¦
+¦                       ¦ ----- -----       ----- -----       ----- -----    ¦
+¦                       ¦  20   20-29        40   40-49       60    60-69    ¦
+¦                       ¦  30   30-39        50   50-59                      ¦
+¦-----------------------+----------------------------------------------------¦
+¦ STAGE_FOR_ANALYSIS    ¦ The large opacity value from the 1st reading for   ¦
+¦                       ¦ the 2006 x-ray and from the consensus of two       ¦
+¦                       ¦ readings for the other x-rays.(O, A, or B)         ¦
+¦-----------------------+----------------------------------------------------¦
+¦ CATEGORY_FOR_ANALYSIS ¦ The small opacity value from the 1st reading for   ¦
+¦                       ¦ the 2006 x-ray and from the consensus of two       ¦
+¦                       ¦ readings for the other x-rays. For the early years ¦
+¦                       ¦ of the program, only the major category (0, 1, 2,  ¦
+¦                       ¦ or 3) was reported.                                ¦
+¦                       ¦                                                    ¦
+¦                       ¦      CATEGORY             CATEGORY                 ¦
+¦                       ¦      FOR      ILO         FOR      ILO             ¦
+¦                       ¦      ANALYSIS CATEGORY    ANALYSIS CATEGORY        ¦
+¦                       ¦      -------- -------     -------- --------        ¦
+¦                       ¦        0        0           12       1/2           ¦
+¦                       ¦        00       0/0         21       2/1           ¦
+¦                       ¦        01       0/1         22       2/2           ¦
+¦                       ¦        10       1/0         23       2/3           ¦
+¦                       ¦        11       1/1                                ¦
+¦-----------------------+----------------------------------------------------¦
+¦ AX_IND                ¦ Indicator that the reader noted that there was     ¦
+¦                       ¦ coalescence of small opacities (YES or NO) for the ¦
+¦                       ¦ last x-ray for a miner; for all other x-rays this  ¦
+¦                       ¦ value is blank or missing.                         ¦
+¦-----------------------+----------------------------------------------------¦
+¦ MINING_TENURE_GROUP   ¦ Group in which total mining tenure falls for the   ¦
+¦                       ¦ last x-ray for a miner; for all other x-rays this  ¦
+¦                       ¦ value is blank or missing.  These are grouped in   ¦
+¦                       ¦ increments of 10.                                  ¦
+¦                       ¦                                                    ¦
+¦                       ¦          GROUP RANGE       GROUP RANGE             ¦
+¦                       ¦          ----- -----       ----- -----             ¦
+¦                       ¦            0   00-09        20   20-29             ¦
+¦                       ¦           10   10-19        30   30-39             ¦
+¦-----------------------+----------------------------------------------------¦
+¦ FACE_TENURE_GROUP     ¦ Group in which working at the face tenure falls    ¦
+¦                       ¦ for the last x-ray for a miner; for all other      ¦
+¦                       ¦ x-rays this value is blank or missing.  These are  ¦
+¦                       ¦ grouped in increments of 10.                       ¦
+¦                       ¦                                                    ¦
+¦                       ¦          GROUP RANGE       GROUP RANGE             ¦
+¦                       ¦          ----- -----       ----- -----             ¦
+¦                       ¦            0   00-09        20   20-29             ¦
+¦                       ¦           10   10-19        30   30-39             ¦
++----------------------------------------------------------------------------+
+
+         
+       

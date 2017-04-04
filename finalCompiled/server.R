@@ -145,7 +145,7 @@ shinyServer(function(input, output) {
                                      , "Mid-West" = "darkorchid2"
                                      , "West" = "firebrick2")) +
       ggtitle("Temporal Disease Trends") +
-      labs(x="Year",y="Number of Cases") +
+      labs(x="Year", y="Number of Cases") +
       xlim(1969, 2002)
       
     })

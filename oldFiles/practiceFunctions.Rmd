@@ -1,0 +1,90 @@
+---
+title: "practice"
+output: html_document
+---
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+summary(iris)
+```
+
+```{r}
+iris %>%
+group_by(Species)
+```
+
+```{r}
+group_by(iris, Species)
+```
+
+```{r}
+iris %>%
+filter(Sepal.Length > 5, Species == "setosa")
+```
+```{r}
+iris %>%
+  summarize(Sepal.Length, Species)
+```
+
+```{r}
+ncsr4 <- read.csv("data/ncsr4_clean.csv")
+```
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+ncsr4$REGION <- factor(ncsr4$REGION, levels = c("HI RANK", "MED RANK", "LOW RANK"))
+summary(ncsr4)
+```
+
+
+```{r}
+ncsr4 %>%
+      filter(PMF == "PMF+", EXP > 11) %>%
+      group_by(AGE) %>%
+      count(AGE, REGION) %>%
+      ggplot(aes(AGE, n, fill = REGION)) +
+            geom_bar(stat = "identity", position = "stack") 
+            
+```
+
+Here I am working on putting the three disease columns into one column called disease. this will allow for us to have a drop down for each disease for the bar graph.
+```{r}
+ output$range <- renderPrint({ input$slider1 })
+```
+```{r}
+rapidProg_disease <- read.csv("data/rapidProg_disease.csv")
+```
+
+```{r}
+rapidProg_disease %>%
+    filter(DISEASE == "CWP") %>%
+    group_by(XRAY_YEAR) %>%
+    count(XRAY_YEAR, REGION) %>%
+    ggplot(aes(XRAY_YEAR, n, color = REGION)) +
+    geom_line() +
+    ggtitle("Temporal Disease Trends") +
+    labs(x="Year",y="Number of Cases") +
+    xlim(1969, 2002)
+
+```
+
+
+```{r}
+```
+
+```{r}
+function() { paste(input$dataset, '.csv', sep='') }
+```
+
+```{r}
+span( "(CWP)"
+                                 , style = "color:red"
+                                 )
+```
+

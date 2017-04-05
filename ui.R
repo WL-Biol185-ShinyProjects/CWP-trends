@@ -1,7 +1,7 @@
 library(shiny)
 library(leaflet)
 
-navbarPage( theme = shinythemes::shinytheme("superhero")
+navbarPage( theme = shinythemes::shinytheme("slate")
           , "CWP & PMF Trends"
           , selected = "Home"
           , header = "© 2017 John Bowman, Michael North Jr."
@@ -9,7 +9,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
           
           ##Home Page
           , tabPanel( "Home"
-                    , fillPage( h1( span( "CWP"
+                    , fluidRow( h1( span( "CWP"
                                         , style = "color:#ffb499"
                                         )
                                   , "and"
@@ -110,92 +110,92 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                                  )
                                     )
 
-                    , mainPanel(tabsetPanel( type = "pills"
-                                           , tabPanel( "Plot"
-                                                     , plotOutput("linePlot")
+                    , mainPanel( tabsetPanel( type = "pills"
+                                            , tabPanel( "Plot"
+                                                      , plotOutput("linePlot")
                                                  
-                                           , strong("Figure 1")
-                                                 
-                                           , p( "The number of individuals with"
-                                              , span( "CWP"
-                                                    , style = "color:#ffb499"
-                                                    ) 
-                                              ,"or"
-                                              , span( "PMF"
-                                                    , style = "color:#92ede8"
-                                                    )
-                                              , "displayed as a function 
-                                                of time. Lines are colored by
-                                                represented region."
-                                              , br()
-                                              , br()
-                                              , h6( span( "West:"
-                                                        , style = "color:#d62929"
-                                                        )
-                                                  , "All Counties in Arizona 
-                                                    , Colorado, Montana,  
-                                                    New Mexico, North Dakota
-                                                    , Oklahoma, Texas, Utah,
-                                                    Wyoming, and Washington."
-                                                  )
-                                              , h6( span( "Mid-West:"
-                                                        , style = "color:#c284e1"
-                                                        )
-                                                  , "All Counties in 
-                                                    Illinois and Indiana; 
-                                                    Hopkins, Union, and 
-                                                    Webster Counties in 
-                                                    Kentucky."
-                                                  )
-                                              , h6( span( "Northern Appalachia:"
-                                                        , style = "color:DeepSkyBlue"
-                                                        )
-                                                  , "All Counties in Maryland
-                                                    , Pennsylvania and Ohio;
-                                                    Barbour, Brooke, Clay, 
-                                                    Grant, Greenbrier, 
-                                                    Harrison, Lincoln, 
-                                                    Marion, Marshall, 
-                                                    Monongalia, Preston, 
-                                                    Raleigh, Randolph, 
-                                                    Tucker, Upshur, and 
-                                                    Webster Counties in West
-                                                    Virginia."
-                                                  )
-                                              , h6( span( "Central Appalachia:"
-                                                        , style = "color:#2db92d"
-                                                        )
-                                                  , "All Counties in Virginia 
-                                                    and Tennessee; Bell, Boyd
-                                                    , Breathitt, Christian, 
-                                                    Clay, Daviess, Estill, 
-                                                    Floyd, Harlan, Henderson
-                                                    , Jackson, Johnson, Knott
-                                                    , Knox, Laurel, Lawrence
-                                                    , Leslie, Letcher, Martin
-                                                    , Mclean, Muhlenberg, 
-                                                    Perry, Pike, Whitley, 
-                                                    and Wolfe Counties in 
-                                                    Kentucky; Boone, Fayette
-                                                    , Kanawha, Logan, 
-                                                    McDowell, Mingo, Nicholas
-                                                    , Wayne, and Wyoming 
-                                                    Counties in West 
-                                                    Virginia."
-                                                  )
-                                              , h6( span( "Southern Appalachia:"
-                                                        , style = "color:Gold"
-                                                        )
-                                                  , "All Counties in Alabama
-                                                    , Arkansas, and Louisiana."
-                                                  )
-                                             )
-                                           )
-                                           , tabPanel( "Summary"
-                                                     , verbatimTextOutput("summary")
+                                            , strong("Figure 1")
+                                                  
+                                            , p( "The number of individuals with"
+                                               , span( "CWP"
+                                                     , style = "color:#ffb499"
+                                                     ) 
+                                               ,"or"
+                                               , span( "PMF"
+                                                     , style = "color:#92ede8"
                                                      )
-                                          )
-                                )
+                                               , "displayed as a function 
+                                                 of time. Lines are colored by
+                                                 represented region."
+                                               , br()
+                                               , br()
+                                               , h6( span( "West:"
+                                                         , style = "color:#d62929"
+                                                         )
+                                                   , "All Counties in Arizona 
+                                                     , Colorado, Montana,  
+                                                     New Mexico, North Dakota
+                                                     , Oklahoma, Texas, Utah,
+                                                     Wyoming, and Washington."
+                                                   )
+                                               , h6( span( "Mid-West:"
+                                                         , style = "color:#c284e1"
+                                                         )
+                                                   , "All Counties in 
+                                                     Illinois and Indiana; 
+                                                     Hopkins, Union, and 
+                                                     Webster Counties in 
+                                                     Kentucky."
+                                                   )
+                                               , h6( span( "Northern Appalachia:"
+                                                         , style = "color:DeepSkyBlue"
+                                                         )
+                                                   , "All Counties in Maryland
+                                                     , Pennsylvania and Ohio;
+                                                     Barbour, Brooke, Clay, 
+                                                     Grant, Greenbrier, 
+                                                     Harrison, Lincoln, 
+                                                     Marion, Marshall, 
+                                                     Monongalia, Preston, 
+                                                     Raleigh, Randolph, 
+                                                     Tucker, Upshur, and 
+                                                     Webster Counties in West
+                                                     Virginia."
+                                                   )
+                                               , h6( span( "Central Appalachia:"
+                                                         , style = "color:#2db92d"
+                                                         )
+                                                   , "All Counties in Virginia 
+                                                     and Tennessee; Bell, Boyd
+                                                     , Breathitt, Christian, 
+                                                     Clay, Daviess, Estill, 
+                                                     Floyd, Harlan, Henderson
+                                                     , Jackson, Johnson, Knott
+                                                     , Knox, Laurel, Lawrence
+                                                     , Leslie, Letcher, Martin
+                                                     , Mclean, Muhlenberg, 
+                                                     Perry, Pike, Whitley, 
+                                                     and Wolfe Counties in 
+                                                     Kentucky; Boone, Fayette
+                                                     , Kanawha, Logan, 
+                                                     McDowell, Mingo, Nicholas
+                                                     , Wayne, and Wyoming 
+                                                     Counties in West 
+                                                     Virginia."
+                                                   )
+                                               , h6( span( "Southern Appalachia:"
+                                                         , style = "color:Gold"
+                                                         )
+                                                   , "All Counties in Alabama
+                                                     , Arkansas, and Louisiana."
+                                                   )
+                                              )
+                                            )
+                                            , tabPanel( "Summary"
+                                                      , verbatimTextOutput("summary")
+                                                      )
+                                           )
+                                 )
                           )
                     )
           
@@ -255,58 +255,58 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                       , "."
                                       )
                                   
-                                  , br()
-                                  , br()
+                                   , br()
+                                   , br()
                                   
-                                  , h6( span("West:", style = "color:#d62929")
-                                      , "All Counties in Arizona, Colorado, 
-                                        Montana, New Mexico, North Dakota, 
-                                        Oklahoma, Texas, Utah, Wyoming, and 
-                                        Washington."
-                                      )
+                                   , h6( span("West:", style = "color:#d62929")
+                                       , "All Counties in Arizona, Colorado, 
+                                         Montana, New Mexico, North Dakota, 
+                                         Oklahoma, Texas, Utah, Wyoming, and 
+                                         Washington."
+                                       )
                                   
-                                  , h6( span( "Mid-West:"
-                                            , style = "color:#c284e1"
-                                            )
-                                      , "All Counties in Illinois and Indiana; 
-                                        Hopkins, Union, and Webster Counties in 
-                                        Kentucky."
-                                      )
+                                   , h6( span( "Mid-West:"
+                                             , style = "color:#c284e1"
+                                             )
+                                       , "All Counties in Illinois and Indiana; 
+                                         Hopkins, Union, and Webster Counties in 
+                                         Kentucky."
+                                       )
                                   
-                                  , h6( span( "Northern Appalachia:"
-                                            , style = "color:DeepSkyBlue"
-                                            )
-                                      , "All Counties in Maryland,
-                                        Pennsylvania and Ohio; Barbour, Brooke, 
-                                        Clay, Grant, Greenbrier,Harrison, 
-                                        Lincoln, Marion, Marshall, Monongalia, 
-                                        Preston, Raleigh, Randolph, Tucker, 
-                                        Upshur, and Webster Counties in West 
-                                        Virginia."
-                                      )
+                                   , h6( span( "Northern Appalachia:"
+                                             , style = "color:DeepSkyBlue"
+                                             )
+                                       , "All Counties in Maryland,
+                                         Pennsylvania and Ohio; Barbour, Brooke, 
+                                         Clay, Grant, Greenbrier,Harrison, 
+                                         Lincoln, Marion, Marshall, Monongalia, 
+                                         Preston, Raleigh, Randolph, Tucker, 
+                                         Upshur, and Webster Counties in West 
+                                         Virginia."
+                                       )
                                   
-                                  , h6( span( "Central Appalachia:"
-                                            , style = "color:#2db92d"
-                                            ) 
-                                      , "All Counties in Virginia and Tennessee;
-                                        Bell, Boyd, Breathitt, Christian, Clay, 
-                                        Daviess, Estill, Floyd, Harlan, 
-                                        Henderson, Jackson, Johnson, Knott, Knox
-                                        , Laurel, Lawrence, Leslie, Letcher, 
-                                        Martin, Mclean, Muhlenberg, Perry, Pike,
-                                        Whitley, and Wolfe Counties in Kentucky;
-                                        Boone, Fayette, Kanawha, Logan, McDowell
-                                        , Mingo, Nicholas, Wayne, and Wyoming 
-                                        Counties in West Virginia."
-                                      )
+                                   , h6( span( "Central Appalachia:"
+                                             , style = "color:#2db92d"
+                                             ) 
+                                       , "All Counties in Virginia and Tennessee;
+                                         Bell, Boyd, Breathitt, Christian, Clay, 
+                                         Daviess, Estill, Floyd, Harlan, 
+                                         Henderson, Jackson, Johnson, Knott, Knox
+                                         , Laurel, Lawrence, Leslie, Letcher, 
+                                         Martin, Mclean, Muhlenberg, Perry, Pike,
+                                         Whitley, and Wolfe Counties in Kentucky;
+                                         Boone, Fayette, Kanawha, Logan, McDowell
+                                         , Mingo, Nicholas, Wayne, and Wyoming 
+                                         Counties in West Virginia."
+                                       )
                                   
-                                  , h6( span( "Southern Appalachia:"
-                                            , style = "color:Gold"
-                                            )
-                                      , "All Counties in Alabama, Arkansas, 
-                                        and Louisiana."
-                                      )
-                                  )
+                                   , h6( span( "Southern Appalachia:"
+                                             , style = "color:Gold"
+                                             )
+                                       , "All Counties in Alabama, Arkansas, 
+                                         and Louisiana."
+                                       )
+                                   )
                                    )
                     )
 
@@ -363,7 +363,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
           
           ##References and Sources
           , tabPanel( "References"
-                    , mainPanel( h2("References")
+                    , fluidRow( h2("References")
                                
                                , br()
                                , br()

@@ -114,7 +114,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                            , tabPanel( "Plot"
                                                      , plotOutput("linePlot")
                                                  
-                                           , strong("Figure 4")
+                                           , strong("Figure 1")
                                                  
                                            , p( "The number of individuals with"
                                               , span( "CWP"
@@ -124,9 +124,9 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                               , span( "PMF"
                                                     , style = "color:#92ede8"
                                                     )
-                                              , "is displayed as a function 
-                                                of time. Each line indicates  
-                                                a different coal region."
+                                              , "displayed as a function 
+                                                of time. Lines are colored by
+                                                represented region."
                                               , br()
                                               , br()
                                               , h6( span( "West:"
@@ -196,7 +196,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                                      )
                                           )
                                 )
-                    )
+                          )
                     )
           
           
@@ -223,7 +223,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                     )
                         
                         , mainPanel( leafletOutput("mapPlot")
-                                   , strong("Figure 1")
+                                   , strong("Figure 2")
                                      
                                    , br()
                                    
@@ -231,7 +231,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                       , span( "PMF", style = "color:#92ede8")
                                       , " cases and"
                                       , span( "CWP", style = "color:#ffb499")
-                                      , "over time. Cases were grouped by 
+                                      , "over time. Cases are grouped by 
                                         the commonly accepted regions in the 
                                         literature: "
                                       , span( "West", style = "color:#d62929")
@@ -326,16 +326,16 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                            , align = "left"
                                            , plotOutput("expPlot")
                                    
-                                           , strong("Figure 2")
+                                           , strong("Figure 3")
                                    
                                            , p( "The number of individuals diagnosed with"
                                               , span( "PMF"
                                                     , style = "color:#92ede8"
                                                     )
-                                              , "is displayed as a function of age. 
+                                              , "displayed as a function of age. 
                                                 Stacked bars represent exposure 
                                                 to three types of coal: high
-                                                rank, medium rank,and low rank."
+                                                , medium,and low rank."
                                               )
                                            )
                                
@@ -343,16 +343,16 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                            , align = "left"
                                            , plotOutput("cwpExpPlot") 
                                      
-                                           , strong("Figure 3")
+                                           , strong("Figure 4")
                                    
                                            , p( "The number of individuals diagnosed with"
                                               , span( "CWP"
                                                     , style = "color:#ffb499"
                                                     )
-                                              , "is displayed as a function of age.
+                                              , "displayed as a function of age.
                                                 Stacked bars represent exposure 
                                                 to three types of coal: high 
-                                                rank, medium rank, and low rank."
+                                                , medium, and low rank."
                                               )
                                
                                            )
@@ -425,5 +425,5 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                   , "and the U.S. Census Bureau."
                                   )
                                )
-          )
+                )
           )

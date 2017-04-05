@@ -335,7 +335,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                               , "displayed as a function of age. 
                                                 Stacked bars represent exposure 
                                                 to three types of coal: high
-                                                , medium,and low rank."
+                                                , medium, and low rank."
                                               )
                                            )
                                
@@ -368,7 +368,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                , br()
                                , br()
                                
-                               , p( "Coal Picture from"
+                               , p( "Coal Picture from:"
                                   , span( a( href = "http://www.pittstoncity.org/wp-content/uploads/2017/02/coal.jpg"
                                            , "http://www.pittstoncity.org/wp-content/uploads/2017/02/coal.jpg"
                                            )
@@ -377,7 +377,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                
                                , br()
                                
-                               , p( "International labor Office Guidelines from"
+                               , p( "International labor Office Guidelines from:"
                                   , span( a( href = "http://www.ilo.org/safework/info/WCMS_108548/lang--en/index.htm"
                                            , "http://www.ilo.org/safework/info/WCMS_108548/lang--en/index.htm")
                                         )
@@ -393,7 +393,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                                , class = NULL
                                                )
                                
-                               , p( "from:"
+                               , p( "or from:"
                                   , span( a( href = "https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html"
                                            , "https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html")
                                         )
@@ -406,7 +406,7 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                                , class = NULL
                                                )
                                
-                               , p( "from:"
+                               , p( "or from:"
                                   , span( a( href = "https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html"
                                            , "https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html")
                                         )

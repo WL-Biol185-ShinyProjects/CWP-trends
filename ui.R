@@ -1,13 +1,23 @@
 library(shiny)
 library(leaflet)
 
-navbarPage( theme = shinythemes::shinytheme("superhero")
-          , "Trends"
+navbarPage( theme = shinythemes::shinytheme("slate")
+          , "Command Center"
           , selected = "Home"
+          , header = "© 2017 John Bowman, Michael North Jr."
+          , collapsible = TRUE
+          , position = "static-top"
           
           ##Home Page
           , tabPanel( "Home"
-                    , fillPage( h1( "CWP and PMF Trends"
+                    , fillPage( h1( span( "CWP"
+                                        , style = "color:#ffb499"
+                                        )
+                                  , "and"
+                                  , span( "PMF"
+                                        , style = "color:#92ede8"
+                                        )
+                                  , "Trends"
                                   , align = "center"
                                   )
                                        
@@ -367,7 +377,6 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                   , span( a( href = "http://www.pittstoncity.org/wp-content/uploads/2017/02/coal.jpg"
                                            , "http://www.pittstoncity.org/wp-content/uploads/2017/02/coal.jpg"
                                            )
-                                        , style = "color:#b3b3ff"
                                         )
                                   )
                                
@@ -376,7 +385,6 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                , p( "International labor Office Guidelines from"
                                   , span( a( href = "http://www.ilo.org/safework/info/WCMS_108548/lang--en/index.htm"
                                            , "http://www.ilo.org/safework/info/WCMS_108548/lang--en/index.htm")
-                                        , style = "color:#b3b3ff"
                                         )
                                   )
                                
@@ -393,7 +401,6 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                , p( "from:"
                                   , span( a( href = "https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html"
                                            , "https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html")
-                                        , style = "color:#b3b3ff"
                                         )
                                   )
                                
@@ -407,7 +414,6 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                , p( "from:"
                                   , span( a( href = "https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html"
                                            , "https://www.cdc.gov/niosh/topics/cwhsp/cwhsp-public-data.html")
-                                        , style = "color:#b3b3ff"
                                         )
                                   )
                                
@@ -415,12 +421,10 @@ navbarPage( theme = shinythemes::shinytheme("superhero")
                                   , br()
                                   , span( a( href = "http://eric.clst.org/wupl/Stuff/gz_2010_us_050_00_5m.json"
                                            , "http://eric.clst.org/wupl/Stuff/gz_2010_us_050_00_5m.json")
-                                        , style = "color:#b3b3ff"
                                         )
                                   , br()
                                   , span( a( href = "http://eric.clst.org/wupl/Stuff/gz_2010_us_040_00_5m.json"
                                            , "http://eric.clst.org/wupl/Stuff/gz_2010_us_040_00_5m.json")
-                                        , style = "color:#b3b3ff"
                                         )
                                   , br()
                                   , "and the U.S. Census Bureau."

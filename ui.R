@@ -334,8 +334,8 @@ navbarPage( theme = shinythemes::shinytheme("slate")
                                                     )
                                               , "displayed as a function of age. 
                                                 Stacked bars represent exposure 
-                                                to three types of coal: high
-                                                , medium, and low rank."
+                                                to three types of coal: high,
+                                                medium, and low rank."
                                               )
                                            )
                                
@@ -351,8 +351,8 @@ navbarPage( theme = shinythemes::shinytheme("slate")
                                                     )
                                               , "displayed as a function of age.
                                                 Stacked bars represent exposure 
-                                                to three types of coal: high 
-                                                , medium, and low rank."
+                                                to three types of coal: high, 
+                                                medium, and low rank."
                                               )
                                
                                            )

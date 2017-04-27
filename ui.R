@@ -424,6 +424,28 @@ navbarPage( theme = shinythemes::shinytheme("slate")
                                   , br()
                                   , "and the U.S. Census Bureau."
                                   )
+                               , h2 ("Source Code")
+                               
+                               , br()
+                               , br()
+                               
+                               , p ( span( a( href = "https://github.com/WL-Biol185-ShinyProjects/CWP-trends"
+                                            , "https://github.com/WL-Biol185-ShinyProjects/CWP-trends")
+                                         )
+                                   )
+                               
+                               , br()
+                               , br()
+                               
+                               , h2 ("Contact")
+                               
+                               , br()
+                               , br()
+                               
+                               , p( "John Bowman: bowmanj17@mail.wlu.edu"
+                                  , br()
+                                  , "Michael North: northm17@mail.wlu.edu"
+                                  )
                                )
                 )
           )

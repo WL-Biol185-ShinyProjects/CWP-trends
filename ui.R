@@ -364,8 +364,7 @@ navbarPage( theme = shinythemes::shinytheme("slate")
           ##References and Sources
           , tabPanel( "References"
                     , fluidRow( h2("References")
-                               
-                               , br()
+
                                , br()
                                
                                , p( "Coal Picture from:"
@@ -424,10 +423,10 @@ navbarPage( theme = shinythemes::shinytheme("slate")
                                   , br()
                                   , "and the U.S. Census Bureau."
                                   )
-                               , h2 ("Source Code")
                                
-                               , br()
-                               , br()
+                               , br ()
+                               
+                               , h2 ("Source Code")
                                
                                , p ( span( a( href = "https://github.com/WL-Biol185-ShinyProjects/CWP-trends"
                                             , "https://github.com/WL-Biol185-ShinyProjects/CWP-trends")
@@ -435,12 +434,8 @@ navbarPage( theme = shinythemes::shinytheme("slate")
                                    )
                                
                                , br()
-                               , br()
-                               
+
                                , h2 ("Contact")
-                               
-                               , br()
-                               , br()
                                
                                , p( "John Bowman: bowmanj17@mail.wlu.edu"
                                   , br()

@@ -364,17 +364,12 @@ navbarPage( theme = shinythemes::shinytheme("slate")
           ##References and Sources
           , tabPanel( "References"
                     , fluidRow( h2("References")
-
-                               , br()
-                               
                                , p( "Coal Picture from:"
                                   , span( a( href = "http://www.pittstoncity.org/wp-content/uploads/2017/02/coal.jpg"
                                            , "http://www.pittstoncity.org/wp-content/uploads/2017/02/coal.jpg"
                                            )
                                         )
                                   )
-                               
-                               , br()
                                
                                , p( "International labor Office Guidelines from:"
                                   , span( a( href = "http://www.ilo.org/safework/info/WCMS_108548/lang--en/index.htm"
